@@ -155,8 +155,9 @@ function muahangBestCoffee() {
     });
 }
 // get id all of coffees 
+
 function getCoffeeId(id) {
-    fetch(`https://639071e065ff41831113c6ea.mockapi.io/coffee-product/${id}`)
+    fetch(`https://639071e065ff41831113c6ea.mockapi.io/coffee-product-v1/${id}`)
         .then((res) => res.json())
         .then((data) => {
             console.log(data);
@@ -164,9 +165,10 @@ function getCoffeeId(id) {
         });
 }
 function getBestCoffeeId(id) {
-    fetch(`https://639071e065ff41831113c6ea.mockapi.io/coffee-special/${id}`)
+    fetch(`https://6395b17e90ac47c680711c2c.mockapi.io/coffee-product-special-v1/${id}`)
         .then((res) => res.json())
         .then((data) => {
+            console.log(data);
             addCardInShop(data);
         });
 }
