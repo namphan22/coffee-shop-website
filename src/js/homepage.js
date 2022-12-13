@@ -9,6 +9,8 @@ const btnshop = document.querySelector(".navbar__shop");
 const btnYourCoffee = document.querySelector(".about__content--btn-get");
 const showMore_btn = document.querySelector(".popular__btn-showmore");
 const backdrop = document.querySelector('.container__backdrop');
+const btnClose = document.querySelector('.giohang--header__btnclose');
+
 
 function renderCoffeeBest() {
     fetch("https://639071e065ff41831113c6ea.mockapi.io/coffee-special")
@@ -256,6 +258,11 @@ function showMoreCard() {
         cardsMenu.classList.toggle("show1");
     });
 }
+const closeShoppingCart =function(){
+    btngiohang.classList.toggle('disable');
+    backdrop.classList.toggle('hidden-backdrop');
+}
+btnClose.addEventListener('click',closeShoppingCart);
 
 function homepage() {
     console.log(backdrop);
