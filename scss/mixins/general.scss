@@ -1,0 +1,79 @@
+@mixin displayFlexCenter($align: center, $justi: center, $gap: 0) {
+    display: flex;
+    justify-content: $justi;
+    align-items: $align;
+    gap: $gap;
+}
+
+// Text
+@mixin heading1($mb: 24px) {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 5.2rem;
+    line-height: 72px;
+    margin-bottom: $mb;
+}
+@mixin heading2($mb: 24px) {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    margin-bottom: $mb;
+}
+@mixin heading3($mb: 24px) {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: $mb;
+}
+
+@mixin cap4($mb: 24px) {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: $mb;
+}
+@mixin cap3($mb: 24px) {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: $mb;
+}
+
+@mixin cap2($mb: 24px) {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    // margin-bottom: $mb;
+}
+
+@mixin cap1($mb: 32px) {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: $mb;
+}
+
+// frame
+@mixin frame3($mb: 24px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    border: 2px solid #ff912b;
+    // margin-bottom: $mb;
+    border-radius: 8px;
+}

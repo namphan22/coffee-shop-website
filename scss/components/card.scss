@@ -1,0 +1,125 @@
+@import "./button.scss";
+.popular {
+    &__btn-showmore {
+        margin-top: 20px;
+        @include button($width: 170px);
+        @include cap1;
+        cursor: pointer;
+        margin: 0 auto;
+        &:hover {
+            @include buttobHover;
+        }
+    }
+    &__title {
+        margin-bottom: 30px;
+        margin-top: 35px;
+    }
+    &__section--title {
+        margin-bottom: 30px;
+        margin-top: 35px;
+    }
+    &__background {
+        height: 350px;
+        width: 100%;
+        border-radius: 64px;
+        background-color: $chocolateBG;
+    }
+    &__card-list,
+    &__card-list2 {
+        display: grid;
+        padding: 20px;
+        width: 100%;
+        border-radius: 24px;
+        @include displayFlexCenter(center, space-between, 80px);
+        flex-wrap: wrap;
+        max-height: 970px;
+        overflow: hidden;
+        transition: 1s;
+    }
+    &__card {
+        background-color: $light;
+        width: 29%;
+        padding: 25px;
+        border-radius: 8px;
+        filter: drop-shadow(10px 10px 9px rgba(0, 0, 0, 0.25));
+        &--subline {
+            @include cap3;
+        }
+        cursor: pointer;
+    }
+    &__card-best {
+        background-color: $light;
+        width: 29%;
+        padding: 25px;
+        border-radius: 8px;
+        cursor: pointer;
+
+        filter: drop-shadow(10px 10px 9px rgba(0, 0, 0, 0.25));
+        &--subline {
+            @include cap3;
+        }
+    }
+
+    &__card:first-child {
+        transition-delay: 200ms;
+    }
+    &__card:nth-child(2) {
+        transition-delay: 400ms;
+    }
+    &__card:nth-child(3) {
+        transition-delay: 600ms;
+    }
+
+    &__card:hover {
+        transform: scale(1.02);
+        transition: 0.5s;
+    }
+    &__card-best:hover {
+        transform: scale(1.02);
+        transition: 0.5s;
+    }
+    &__rating {
+        position: absolute;
+        top: 35px;
+        left: 35px;
+    }
+    &__card--img {
+        margin-bottom: 19px;
+        img {
+            border-radius: 12px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__card--info {
+        @include displayFlexCenter(center, space-between);
+        padding: 0 10px;
+    }
+    &__card--name {
+        @include heading3(16px);
+    }
+    &__card--cost {
+        @include heading3(16px);
+    }
+    &__card--decribe {
+        padding: 0 10px;
+        flex-grow: 1;
+        @include displayFlexCenter(center, flex-start, 30px);
+        position: relative;
+    }
+    &__card--btn {
+        @include frame3(28px);
+        @include cap2;
+    }
+
+    &__card--buy {
+        position: absolute;
+        top: 3px;
+        right: 0;
+    }
+}
+
+.show1 {
+    max-height: 9000px;
+}

@@ -1,0 +1,152 @@
+.navbar {
+    &__logo {
+        width: 150px;
+        height: 30px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__links {
+        * {
+            text-decoration: none;
+        }
+        @include displayFlexCenter(center, space-between, 32px);
+        list-style: none;
+        // list-style: none;
+        // display: flex;
+        // justify-content: space-around;
+       
+        // gap: 3.2rem;
+        
+       
+    }
+
+    &__link {
+        @include cap1();
+        color: $brown;
+    }
+    &__link:hover {
+        transform: scale(1.2);
+        transition: 0.5s;
+    }
+    
+    &__buy {
+        // @include displayFlexCenter(center, space-between, 32px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 32px;
+    }
+    &__look {
+        position: relative;
+        input {
+            height: 40px;
+            width: 222px;
+            border-radius: 35px;
+            padding: 11px 52px;
+            border: none;
+        }
+        img {
+            position: absolute;
+            top: 7px;
+            left: 10px;
+        }
+    }
+    
+   
+     &__shop {
+        // width: 200px;
+            img:hover {
+                transform: scale(1.2);
+                transition: 0.5s;
+            }
+            cursor: pointer;
+    
+            &.active {
+                animation: rotateShop 0.5s infinite alternate;
+            }
+    
+            @keyframes rotateShop {
+                from {
+                    transform: rotate(0) scale(1);
+                }
+    
+                to {
+                    transform: rotate(15deg) scale(1.2);
+                }
+            }
+    }
+        // &__login {
+           
+        //     width: 25px;
+        //     height: 25px;
+        //     cursor: pointer;
+        // }
+
+    
+       
+
+    
+
+
+
+    &__giohang {
+        width: 400px;
+        height: 1000px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: white;
+        z-index: 9999;
+        // border-radius: none;
+        padding: 10px 20px 10px 10px;
+        // overflow-y: scroll;
+        background-image: url(./assests/img/bg-image-about.png);
+        background-size: cover;
+        // border: #2f2105 solid 5px;
+        &--sanpham {
+            @include cap4($mb: 0px);
+            @include displayFlexCenter(center, space-between, 10px);
+            img {
+                width: 50%;
+                height: 50%;
+                object-fit: cover;
+                align-items: center;
+                margin-left: 25%;
+                border-radius: 8px;
+                filter: drop-shadow(6px 5px 2px rgba(0, 0, 0, 0.25));
+            }
+        }
+        &--name {
+            width: 62px;
+        }
+        &--image {
+            width: 100px;
+            height: 50px;
+            img {
+                width: 80%;
+                height: 80%;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+        }
+        &--x {
+            img {
+                width: 20px;
+                height: 20px;
+                object-fit: cover;
+                background-color: transparent;
+            }
+            &:hover {
+                transform: rotate(15deg);
+                transition: 0.5s;
+            }
+        }
+    }
+}
+
+.disable {
+    display: none;
+}

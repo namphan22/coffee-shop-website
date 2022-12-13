@@ -1,0 +1,18 @@
+// button
+@mixin button($color: $lement, $width: 200px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 32px;
+    gap: 10px;
+    border-radius: 33px;
+    background-color: $brown;
+    color: $color;
+    width: $width;
+    filter: drop-shadow(6px 5px 2px rgba(0, 0, 0, 0.25));
+}
+@mixin buttobHover {
+    transform: scale(1.05);
+    transition: 0.5s;
+}
