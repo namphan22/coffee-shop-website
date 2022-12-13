@@ -84,26 +84,20 @@
         //     height: 25px;
         //     cursor: pointer;
         // }
-
-    
-       
-
-    
-
-
-
     &__giohang {
-        width: 400px;
+        width: 600px;
         height: 1000px;
         position: absolute;
-        right: 0;
-        top: 0;
+        right: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        box-shadow: 0 3rem 5rem rgba(0, 0, 0,0.3);
         background-color: white;
         z-index: 9999;
         // border-radius: none;
         padding: 10px 20px 10px 10px;
         // overflow-y: scroll;
-        background-image: url(./assests/img/bg-image-about.png);
+        // background-image: url(/assests/img/bg-image-about.png);
         background-size: cover;
         // border: #2f2105 solid 5px;
         &--sanpham {

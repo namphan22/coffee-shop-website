@@ -8,7 +8,7 @@ const navbarHidden = document.querySelectorAll(".navbar__link");
 const btnshop = document.querySelector(".navbar__shop");
 const btnYourCoffee = document.querySelector(".about__content--btn-get");
 const showMore_btn = document.querySelector(".popular__btn-showmore");
-const backdrop = document.querySelector('.homepage__backdrop');
+const backdrop = document.querySelector('.container__backdrop');
 
 function renderCoffeeBest() {
     fetch("https://639071e065ff41831113c6ea.mockapi.io/coffee-special")
@@ -154,7 +154,7 @@ function muahangBestCoffee() {
         });
     });
 }
-// lấy id
+// get id all of coffees 
 function getCoffeeId(id) {
     fetch(`https://639071e065ff41831113c6ea.mockapi.io/coffee-product/${id}`)
         .then((res) => res.json())
@@ -192,7 +192,7 @@ function addCardInShop(obj) {
         .join("");
     removeItemGioHang();
 }
-// di chuyển đến menu
+// move to cart icon
 function giohang() {
     btnshop.addEventListener("click", (e) => {
         e.preventDefault();
