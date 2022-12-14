@@ -174,9 +174,21 @@ function getBestCoffeeId(id) {
             addCardInShop(data);
         });
 }
+//  check items in the shop are added  yet
+function checkIsItemAvailable({img,name,cost,feedback,id}){
+    console.log(id);
+    return arrGioHang.some((element)=>element.id===id);
+ 
+}
 //  add card in shop
 const arrGioHang = [];
 function addCardInShop(obj) {
+    let checkItem = false;
+    if(checkIsItemAvailable(obj)){
+        checkItem =true;
+    }
+    else{
+    // console.log(checkIsItemAvailable(obj));
     arrGioHang.push(obj);
     addgiohang.innerHTML = arrGioHang
         .map(
@@ -196,6 +208,8 @@ function addCardInShop(obj) {
         .join("");
     removeItemGioHang();
 }
+}
+
 // move to cart icon
 function giohang() {
     btnshop.addEventListener("click", (e) => {
