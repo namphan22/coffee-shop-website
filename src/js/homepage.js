@@ -13,7 +13,7 @@ const btnClose = document.querySelector('.giohang--header__btnclose');
 
 
 function renderCoffeeBest() {
-    fetch("https://639071e065ff41831113c6ea.mockapi.io/coffee-special")
+    fetch("https://6395b17e90ac47c680711c2c.mockapi.io/coffee-special")
         .then((res) => res.json())
         .then((data) => {
             cards.innerHTML = data
