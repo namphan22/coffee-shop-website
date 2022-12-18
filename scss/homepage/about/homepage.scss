@@ -67,9 +67,9 @@ a {
     }
     &__navbar {
         width: 100%;
-        height: 8rem;
+        height: 7.6rem;
         // padding: 36px 135px;
-        z-index: 10000;
+        z-index: 2;
         // padding: 4.8rem;
         position: fixed;
         background-image: url("/assests/img/bg-image-about.png");
@@ -81,15 +81,82 @@ a {
         @include displayFlexCenter(center, space-around, 32px);
         
     }
+    &__giohang {
+        width: 30vw;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        border-radius: 2px;
+        background: rgb(231, 226, 221);
+        
+        transition: all 0.4s linear;
+        // transform: translate(10px);
+        top: 0;   
+        box-shadow: 0 3rem 5rem rgba(0, 0, 0,0.3);
+        z-index: 6;
+        padding: 10px 20px 10px 10px;
+        &--header{
+            // margin: 3rem 0 5rem 0;
+            margin-bottom: 3rem;
+            // button{
+            //     background-color: rgb(231, 226, 221);
+            // }
+        }
+        &--name-cart{
+            font-size: 4rem;
+            text-align: center;
+        }
+        &--sanpham {
+            @include cap4($mb: 0px);
+            @include displayFlexCenter(center, space-between, 10px);
+            img {
+                width: 50%;
+                height: 50%;
+                object-fit: cover;
+                align-items: center;
+                margin-left: 25%;
+                border-radius: 8px;
+                filter: drop-shadow(6px 5px 2px rgba(0, 0, 0, 0.25));
+            }
+        }
+        &--name {
+            width: 62px;
+        }
+        &--image {
+            width: 100px;
+            height: 50px;
+            img {
+                width: 80%;
+                height: 80%;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+        }
+        &--x {
+            img {
+                width: 20px;
+                height: 20px;
+                object-fit: cover;
+                background-color: transparent;
+            }
+            &:hover {
+                transform: rotate(15deg);
+                transition: 0.5s;
+            }
+        }
+    }
     &__hero {
-        padding: 8rem 0 0 0;
+        padding: 8rem 0 4rem 0;
         max-width: 130rem;
         margin: 0 auto;
         // height: 840px;
         // padding: 158px 122px 158px 135px;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap:9rem;
+        gap:9.6rem;
         align-items: center;
         
         position: relative;
@@ -157,10 +224,12 @@ a {
             font-size: 5.2rem;
             line-height: 1.05;
             margin-bottom: 3.2rem;
-            letter-spacing:-0.5px ;
+            // letter-spacing:-0.5px ;
             color: #333;
             font-weight: 700;
             font-family: "Rubik" ,sans-serif;
+            // font-family: "Bebas Neue", cursive;
+            text-transform: uppercase;
             span {
                 color: $orange;
             }
@@ -350,6 +419,10 @@ a {
         color: white;
     }
     
+}
+.disable {
+    display: none;
+    transform: translateX(0);
 }
 .active {
     color: $orange;

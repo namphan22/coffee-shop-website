@@ -1,17 +1,19 @@
 const authors = document.querySelector(".testimonial__author-list");
 const cards = document.querySelector(".popular__card-list");
 const cardsMenu = document.querySelector(".popular__card-list2");
-const btngiohang = document.querySelector(".navbar__giohang");
+const btngiohang = document.querySelector(".homepage__giohang");
 const addgiohang = document.querySelector("#giohang");
 const hiddenElement = document.querySelectorAll(".hidden");
 const navbarHidden = document.querySelectorAll(".navbar__link");
-const btnshop = document.querySelector(".navbar__shop");
+const btnshop = document.querySelector(".navbar__cart");
 const btnYourCoffee = document.querySelector(".about__content--btn-get");
 const showMore_btn = document.querySelector(".popular__btn-showmore");
 const backdrop = document.querySelector('.container__backdrop');
 const btnClose = document.querySelector('.giohang--header__btnclose');
+const plusElement = document.querySelector('.plus');
+const negativeElement = document.querySelector('.negative');
 
-
+let basket = JSON.parse(localStorage.getItem("data"))||[];
 function renderCoffeeBest() {
     fetch("https://6395b17e90ac47c680711c2c.mockapi.io/coffee-special")
         .then((res) => res.json())
@@ -37,11 +39,12 @@ function renderCoffeeBest() {
             <div class="popular__card--name">
                 ${obj.name}
             </div>
-            <div class="popular__card--cost">${obj.cost} K</div>
+            <div class="popular__card--cost">$${obj.cost}</div>
         </div>
         <div class="popular__card--decribe">
             <div class="popular__card--btn">Hot</div>
             <div class="popular__card--btn">Cold</div>
+            
             <div class="popular__card--buy">
                 <img
                     src="./assests/img/card.png"
@@ -193,14 +196,14 @@ function addCardInShop(obj) {
     addgiohang.innerHTML = arrGioHang
         .map(
             (obj) => `
-    <div class="navbar__giohang--sanpham">
-        <div class="navbar__giohang--image">
+    <div class="homepage__giohang--sanpham">
+        <div class="homepage__giohang--image">
             <img src=${obj.img} alt="" />
         </div>
-        <div class="navbar__giohang--name">${obj.name}</div>
-        <div class="navbar__giohang--cost">${obj.cost} K</div>
-        <div class="navbar__giohang--x">              
-            <img src="./assests/img/rubbish-bin.png" alt="" />
+        <div class="homepage__giohang--name">${obj.name}</div>
+        <div class="homepage__giohang--cost">${obj.cost} K</div>
+        <div class="homepage__giohang--x">              
+            <img src="./assests/img/rubbish-bin.png" alt="bin" />
          </div>
     </div>
     `
@@ -214,6 +217,7 @@ function addCardInShop(obj) {
 function giohang() {
     btnshop.addEventListener("click", (e) => {
         e.preventDefault();
+        console.log(btngiohang);
         btngiohang.classList.toggle("disable");
         backdrop.classList.remove('hidden-backdrop');
     });
@@ -278,6 +282,22 @@ const closeShoppingCart =function(){
 }
 btnClose.addEventListener('click',closeShoppingCart);
 
+
+
+function increment(id){
+    let selectedItemId =id;
+    console.log(id);
+    let search = undefined;
+    if(search===undefined){
+        basket.push({
+            id:selectedItemId,
+            itemNum:1
+
+        })
+    }
+    
+
+}
 function homepage() {
     console.log(backdrop);
     navbarActive();
@@ -287,6 +307,8 @@ function homepage() {
     giohang();
     hiddenElm();
     showMoreCard();
+    console.log(basket);
+    
     
 }
 

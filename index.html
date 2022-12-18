@@ -41,19 +41,27 @@
                      <img src="./assests/img/akar-icons_search.png" alt="" />
                   </form>
                </div>
-               <div class="navbar__shop">
-                  <img src="./assests/img/icons_cart.png" alt="" />
+               <div class="navbar__cart">
+                  <span class="cart__icon">
+                     <i class="fas fa-cart-plus"></i>
+                  </span>
+                  <div class="cart__items" id="cart-amount">0</div>
+                 
                </div>
-             
-               <div class="navbar__giohang disable">
-                  <div class="navbar__giohang--sanpham">
-                     <!-- <img src="./assests/img/out-shop.png" alt="" /> -->
-                  </div>
-                  <div class="navbar__giohang--header">
-                     <button class="giohang--header__btnclose"><i class="fa-solid fa-circle-xmark" ></i></button>
-                  </div>
-                  <div id="giohang"class="navbar__giohang--main"></div>
+          
+            </div>
+            <div class="homepage__giohang disable">
+                  
+               <div class="hompage__giohang--sanpham">
+                  <!-- <img src="./assests/img/out-shop.png" alt="" /> -->
                </div>
+               <div class="hompage__giohang--header">
+                  <button class="giohang--header__btnclose">
+                     <i class="fa-regular fa-circle-xmark"></i>
+                  </button>
+               </div>
+               <h2 class="homepage__giohang--name-cart">Your Cart</h2>
+               <div id="giohang"class="homepage__giohang--main"></div>
             </div>
             <section class="homepage__container">
                <div class="homepage__hero" id="about-us">
@@ -63,10 +71,12 @@
                         <span class="hero__content--drop">coffee</span>
                         before your activity
                      </h1>
-                     <div class="hero__content--title">
-                        Boost your productivity and build your mood with
-                        a glass of coffee in the morning
-                     </div>
+                     <p class="hero__content--title">
+                        <!-- Boost your productivity and build your mood with
+                        a glass of coffee in the morning -->
+                        The coffee is brewed by first roasting the green coffee beans over hot
+                        coals in a brazier. given an opportunity to sample.
+                     </p>
                      <div class="hero__content-btn">
                         <a
                            class="hero__content-btn--order"
