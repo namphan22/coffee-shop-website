@@ -1,3 +1,5 @@
+import { cards,cardsMenu ,btnshop} from "/src/index.js";
+import { buyProduct } from "/src/buy.js";
 export class renderProduct{
     renderCoffeeBest(){
         fetch("https://6395b17e90ac47c680711c2c.mockapi.io/coffee-special")
@@ -95,7 +97,9 @@ export class renderProduct{
         btncard.forEach((btn) => {
             btn.addEventListener("click", () => {
                 const idCard = btn.getAttribute("card-idBest");
-                getBestCoffeeId(idCard);
+                let getBestCoffee = new buyProduct();
+                getBestCoffee.getBestCoffeeId(idCard);
+//                getBestCoffeeId(idCard);
                 btnshop.classList.add("active");
                 setTimeout(() => {
                     btnshop.classList.remove("active");
@@ -109,7 +113,8 @@ export class renderProduct{
         btncard.forEach((btn) => {
             btn.addEventListener("click", () => {
                 const idCard = btn.getAttribute("card-id");
-                getCoffeeId(idCard);
+                let getAllCoffee = new buyProduct();
+                getAllCoffee.getCoffeeId(idCard);
                 btnshop.classList.add("active");
                 setTimeout(() => {
                     btnshop.classList.remove("active");

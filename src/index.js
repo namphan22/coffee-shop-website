@@ -14,9 +14,13 @@ const plusElement = document.querySelector('.plus');
 const negativeElement = document.querySelector('.negative');
 
 let basket = JSON.parse(localStorage.getItem("data"))||[];
-
-
+export {authors};
+export {cards,cardsMenu,btnshop};
+export {arrGioHang,addgiohang} ;
+import { Users } from "./user.js";
 import {renderProduct} from "/src/render.js";
+
+
 // function renderCoffeeBest() {
 //     fetch("https://6395b17e90ac47c680711c2c.mockapi.io/coffee-special")
 //         .then((res) => res.json())
@@ -109,31 +113,31 @@ import {renderProduct} from "/src/render.js";
 // }
 
 
-function renderUser() {
-    fetch("https://639071e065ff41831113c6ea.mockapi.io/users")
-        .then((res) => res.json())
-        .then((data) => {
-            authors.innerHTML = data
-                .map(
-                    (obj) => `<div class="testimonial__author">
-                    <div class="testimonial__author--avt">
-                        <img src="${obj.avt}" alt="" />
-                    </div>
-                    <div class="testimonial__author--info">
-                        <div class="testimonial__author--name">
-                            ${obj.name}
-                        </div>
-                        <div class="testimonial__author--title">
-                            I really love the cappucino, the coffee
-                            was very smooth
-                        </div>
-                    </div>
-                </div>`
-                )
-                .slice(0, 3)
-                .join("");
-        });
-}
+// function renderUser() {
+//     fetch("https://639071e065ff41831113c6ea.mockapi.io/users")
+//         .then((res) => res.json())
+//         .then((data) => {
+//             authors.innerHTML = data
+//                 .map(
+//                     (obj) => `<div class="testimonial__author">
+//                     <div class="testimonial__author--avt">
+//                         <img src="${obj.avt}" alt="" />
+//                     </div>
+//                     <div class="testimonial__author--info">
+//                         <div class="testimonial__author--name">
+//                             ${obj.name}
+//                         </div>
+//                         <div class="testimonial__author--title">
+//                             I really love the cappucino, the coffee
+//                             was very smooth
+//                         </div>
+//                     </div>
+//                 </div>`
+//                 )
+//                 .slice(0, 3)
+//                 .join("");
+//         });
+// }
 
 // function muahang() {
 //     const btncard = document.querySelectorAll(".popular__card");
@@ -164,59 +168,63 @@ function renderUser() {
 // }
 // get id all of coffees 
 
-function getCoffeeId(id) {
-    fetch(`https://639071e065ff41831113c6ea.mockapi.io/coffee-product-v1/${id}`)
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data);
-            addCardInShop(data);
-        });
-}
-function getBestCoffeeId(id) {
-    fetch(`https://6395b17e90ac47c680711c2c.mockapi.io/coffee-product-special-v1/${id}`)
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data);
-            addCardInShop(data);
-        });
-}
+
+
+// function getCoffeeId(id) {
+//     fetch(`https://639071e065ff41831113c6ea.mockapi.io/coffee-product-v1/${id}`)
+//         .then((res) => res.json())
+//         .then((data) => {
+//             console.log(data);
+//             addCardInShop(data);
+//         });
+// }
+
+// function getBestCoffeeId(id) {
+//     fetch(`https://6395b17e90ac47c680711c2c.mockapi.io/coffee-product-special-v1/${id}`)
+//         .then((res) => res.json())
+//         .then((data) => {
+//             console.log(data);
+//             addCardInShop(data);
+//         });
+// }
 //  check items in the shop are added  yet
-function checkIsItemAvailable({img,name,cost,feedback,id}){
-    console.log(id);
-    return arrGioHang.some((element)=>element.id===id);
+// function checkIsItemAvailable({img,name,cost,feedback,id}){
+//     console.log(id);
+//     return arrGioHang.some((element)=>element.id===id);
  
-}
+// }
 //  add card in shop
 const arrGioHang = [];
-function addCardInShop(obj) {
-    let checkItem = false;
-    if(checkIsItemAvailable(obj)){
-        checkItem =true;
-    }
-    else{
-    // console.log(checkIsItemAvailable(obj));
-    arrGioHang.push(obj);
-    addgiohang.innerHTML = arrGioHang
-        .map(
-            (obj) => `
-    <div class="homepage__giohang--sanpham">
-        <div class="homepage__giohang--image">
-            <img src=${obj.img} alt="" />
-        </div>
-        <div class="homepage__giohang--name">${obj.name}</div>
-        <div class="homepage__giohang--cost">${obj.cost} K</div>
-        <div class="homepage__giohang--x">              
-            <img src="./assests/img/rubbish-bin.png" alt="bin" />
-         </div>
-    </div>
-    `
-        )
-        .join("");
-    removeItemGioHang();
-}
-}
+// function addCardInShop(obj) {
+//     let checkItem = false;
+//     if(checkIsItemAvailable(obj)){
+//         checkItem =true;
+//     }
+//     else{
+//     // console.log(checkIsItemAvailable(obj));
+//     arrGioHang.push(obj);
+//     addgiohang.innerHTML = arrGioHang
+//         .map(
+//             (obj) => `
+//     <div class="homepage__giohang--sanpham">
+//         <div class="homepage__giohang--image">
+//             <img src=${obj.img} alt="" />
+//         </div>
+//         <div class="homepage__giohang--name">${obj.name}</div>
+//         <div class="homepage__giohang--cost">${obj.cost} K</div>
+//         <div class="homepage__giohang--x">              
+//             <img src="./assests/img/rubbish-bin.png" alt="bin" />
+//          </div>
+//     </div>
+//     `
+//         )
+//         .join("");
+//     removeItemGioHang();
+// }
+// }
 
 // move to cart icon
+
 function giohang() {
     btnshop.addEventListener("click", (e) => {
         e.preventDefault();
@@ -231,16 +239,19 @@ function giohang() {
 }
 // remove ItemGioHang
 
-function removeItemGioHang() {
-    const timesItems = document.querySelectorAll(".homepage__giohang--x");
-    timesItems.forEach(
-        (timesItem, index) =>
-            (timesItem.onclick = () => {
-                arrGioHang.splice(arrGioHang.indexOf(arrGioHang[index]), 1);
-                timesItem.parentElement.remove();
-            })
-    );
-}
+// function removeItemGioHang() {
+//     const timesItems = document.querySelectorAll(".homepage__giohang--x");
+//     timesItems.forEach(
+//         (timesItem, index) =>
+//             (timesItem.onclick = () => {
+//                 arrGioHang.splice(arrGioHang.indexOf(arrGioHang[index]), 1);
+//                 timesItem.parentElement.remove();
+//             })
+//     );
+// }
+
+
+
 
 //  scroll secction
 function hiddenElm() {
@@ -302,18 +313,19 @@ function increment(id){
 
 }
 function homepage() {
+
     
     navbarActive();
-    let renderCoffee = new renderProduct();
-    renderCoffee.renderCoffeeBest();
-//    renderCoffeeBest();
-    renderCoffee.renderCoffee();
+    let render1 = new renderProduct();
+    render1.renderCoffeeBest();
+    render1.renderCoffee();
+    let render2 = new Users();
+    render2.renderUser();
     
-    renderUser();
     giohang();
     hiddenElm();
     showMoreCard();
-    console.log(basket);
+
     
     
 }
