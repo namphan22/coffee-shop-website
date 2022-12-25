@@ -1,4 +1,5 @@
 @import "./button.scss";
+
 .popular {
     &__btn-showmore {
         margin-top: 20px;
@@ -13,10 +14,14 @@
     &__title {
         margin-bottom: 30px;
         margin-top: 35px;
+        // max-width:170rem ;
+        // margin: 0 auto;
     }
     &__section--title {
-        margin-bottom: 30px;
-        margin-top: 35px;
+        // margin-bottom: 30px;
+        // margin-top: 35px;
+        max-width:170rem ;
+        margin: 0 auto;
     }
     &__background {
         height: 350px;
@@ -28,17 +33,19 @@
     &__card-list2 {
         display: grid;
         padding: 20px;
-        width: 100%;
+        max-width: 170rem;
         border-radius: 24px;
-        @include displayFlexCenter(center, space-between, 80px);
+        // @include displayFlexCenter(center, space-between, 80px);
+        @include displayGrid(3,10rem);
         flex-wrap: wrap;
         max-height: 970px;
         overflow: hidden;
         transition: 1s;
+        margin: 0 auto;
     }
     &__card {
         background-color: $light;
-        width: 29%;
+        // width: 29%;
         padding: 25px;
         border-radius: 8px;
         filter: drop-shadow(10px 10px 9px rgba(0, 0, 0, 0.25));
@@ -49,10 +56,10 @@
     }
     &__card-best {
         background-color: $light;
-        width: 29%;
+        // width: 29%;
         padding: 25px;
-        border-radius: 8px;
-        cursor: pointer;
+        border-radius: 3px;
+        // cursor: pointer;
 
         filter: drop-shadow(10px 10px 9px rgba(0, 0, 0, 0.25));
         &--subline {
@@ -105,7 +112,7 @@
     &__card--decribe {
         padding: 0 10px;
         flex-grow: 1;
-        @include displayFlexCenter(center, flex-start, 30px);
+        @include displayFlexCenter(center, flex-end, 0);
         position: relative;
     }
     &__card--btn {
@@ -114,12 +121,26 @@
     }
 
     &__card--buy {
-        position: absolute;
-        top: 3px;
-        right: 0;
+        display: block;
+    
+        cursor: pointer;
+       
+        font-weight: 600;
+
+        
+        img{
+            width: 3rem;
+
+        }
+        
     }
 }
 
 .show1 {
     max-height: 9000px;
 }
+// .button-amount{
+//     display: flex;
+//     align-items: center;
+//     gap: 2rem;
+// }

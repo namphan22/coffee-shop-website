@@ -1,275 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Coffee Shop</title>
-        <link type="image/png" sizes="16x16" rel="icon" href="./assests/icon/icons8-kawaii-coffee-16.png">
-        <link rel="stylesheet" href="./css/styles.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    </head>
-    <body>
-        
-        <div class="container">
-            <div class="homepage">
-                <div class="homepage__navbar">
-                    <a class="navbar__logo" href="index.html">
-                        <img src="./assests/img/logo_coffe.png" alt="" />
-                    </a>
-                    <ul class="navbar__links">
-                        <li>
-                            <a href="#about-us" class="navbar__link active">Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#best-seller" class="navbar__link"
-                            >Best seller
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#out-product" class="navbar__link"
-                            >Our Product</a>
-
-                        </li>
-                        <li><a href="#delivery" class="navbar__link">Delivery</a></li>
-                    </ul>
-                   
-                    <div class="navbar__buy">
-                        <form action="" class="navbar__look">
-                            <input type="search" placeholder="Search..." />
-                            <img src="./assests/img/akar-icons_search.png" alt="" />
-                        </form>
-                    </div>
-                   
-                    
-                        <div class="navbar__shop">
-                            <img src="./assests/img/icons_cart.png" alt="" />
-                        </div>
-                        <!-- <a href="./src/login/login.html" class="navbar__login">
-                            <img src="./assests/img/login.png" alt="" />
-                        </a>  -->
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Coffee Shop</title>
+      <link type="image/png" sizes="16x16" rel="icon" href="./assests/icon/icons8-kawaii-coffee-16.png">
+      <link rel="stylesheet" href="./css/styles.css" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/65b42dc03e.js" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <div class="container">
+         <div class="homepage">
+            <div class="homepage__navbar">
+               <a class="navbar__logo" href="index.html">
+               <img src="./assests/img/logo_coffe.png" alt="" />
+               </a>
+               <ul class="navbar__links">
+                  <li>
+                     <a href="#about-us" class="navbar__link active">Home
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#best-seller" class="navbar__link"
+                        >Best seller
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#out-product" class="navbar__link"
+                        >Our Product</a>
+                  </li>
+                  <li><a href="#delivery" class="navbar__link">Delivery</a></li>
+               </ul>
+               <div class="navbar__buy">
+                  <form action="" class="navbar__look">
+                     <input type="search" placeholder="Search..." />
+                     <img src="./assests/img/akar-icons_search.png" alt="" />
+                  </form>
+               </div>
+               <div class="navbar__cart">
+                  <span class="cart__icon">
+                     <i class="fas fa-cart-plus"></i>
+                  </span>
+                  <div class="cart__items" id="cart-amount">0</div>
                  
-                        
-                    
-                    <!-- </div>   -->
-                    <div id="giohang" class="navbar__giohang disable">
-                        <div class="navbar__giohang--sanpham">
-                            <img src="./assests/img/out-shop.png" alt="" />
-                        </div>
-                    </div>
-                    
-                </div>
-
-               
-                <section class="homepage__container">
-                    <div class="homepage__hero" id="about-us">
-                        <div class="hero__content">
-                            <h1 class="hero__content--headline">
-                                Enjoy your
-                                <span class="hero__content--drop">coffee</span>
-                                before your activity
-                            </h1>
-                            <div class="hero__content--title">
-                                Boost your productivity and build your mood with
-                                a glass of coffee in the morning
-                            </div>
-                            <div class="hero__content-btn">
-                                <a
-                                    class="hero__content-btn--order"
-                                    href="#out-product"
-                                >
-                                    Order now
-                                    <img src="./assests/img/card.png" alt="" />
-                                </a>
-                                <a
-                                    class="hero__content-btn--frame"
-                                    href="#out-product"
-                                >
-                                    More menu
-                                </a>
-                            </div>
-                        </div>
-                        <div class="hero__img-hero">
-                            <img src="./assests/img/img-hero.png" alt="" />
-                        </div>
-                    </div>
-                </section>
-                
-                <section>
-                    <div class="homepage__popular" id="best-seller">
-                        <div class="popular__section--title">Popular Now</div>
-                        <div class="popular__section"></div>
-                        <div class="popular__card-list hidden"></div>
-                    </div>
-                </section>
-                
-                <section>
-                    <div class="homepage__howto" id="delivery">
-                        <div class="howto">
-                            <div class="howto__title">
-                                How to use delivery service
-                            </div>
-                            <div class="howto__frames hidden">
-                                <div class="howto__frame">
-                                    <div class="howto__frame--image">
-                                        <img
-                                            src="./assests/img/icon-coffee-cup1.png"
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div class="howto__frame--line">
-                                        choose your coffee
-                                    </div>
-                                    <div class="howto__frame--sub">
-                                        there are 20+ coffees for you
-                                    </div>
-                                </div>
-                                <div class="howto__frame">
-                                    <div class="howto__frame--image">
-                                        <img
-                                            src="./assests/img/icon-food-truck1.png"
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div class="howto__frame--line">
-                                        we delivery it to you
-                                    </div>
-                                    <div class="howto__frame--sub">
-                                        Choose delivery service
-                                    </div>
-                                </div>
-                                <div class="howto__frame">
-                                    <div class="howto__frame--image">
-                                        <img
-                                            src="./assests/img/icon-coffee-cup2.png"
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div class="howto__frame--line">
-                                        Enjoy your coffee
-                                    </div>
-                                    <div class="howto__frame--sub">
-                                        Choose delivery service
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <section>
-                    <div class="homepage__about">
-                        <div class="about">
-                            <div class="about__bg-image hidden">
-                                <img src="./assests/img/cofee-about.png" alt="" />
-                            </div>
-                            <div class="about__content hidden">
-                                <div class="about__content--headline">
-                                    About us
-                                </div>
-                                <div class="about__content--line">
-                                    We provide quality coffee, and ready to
-                                    deliver.
-                                </div>
-                                <div class="about__content--subline">
-                                    We are a company that makes and distributes
-                                    delicious drinks. our main product is made
-                                    with a secret recipe and available in stores
-                                    worldwide.
-                                </div>
-                                <div class="about__content--btn-get">
-                                    Get your coffee
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <section>
-                    <div class="homepage__popular" id="out-product">
-                        <div class="popular">
-                            <div class="popular__title">
-                                Special menu for you
-                            </div>
-                            <div class="popular__card-list2 hidden"></div>
-                            <div class="popular__btn-showmore">More Menu</div>
-                        </div>
-                    </div>
-                </section>
-               
-                <section>
-                    <div class="homepage__testimonial">
-                        <div class="testimonial__bg">
-                            <div class="testimonial__bg--headline">
-                                What they say about us
-                            </div>
-                            <div class="testimonial__bg--title">
-                                We always provide the best service and always
-                                maintain the quality of coffee
-                            </div>
-                        </div>
-                        <div class="testimonial__author-list hidden"></div>
-                    </div>
-                </section>
-                
-                <section class="hidden">
-                    <div class="homepage__footer">
-                        <div class="footer__content">
-                            <div class="footer__sub">
-                                Subscribe to get 50% discount price
-                            </div>
-                            <div class="footer__order">
-                                <input
-                                    type="text"
-                                    placeholder="Email address"
-                                />
-                                <a
-                                    class="footer__order--btn"
-                                    href="#out-product"
-                                    >Order now</a
-                                >
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section>
-                    <div class="footer__endfoot">
-                        <div class="footer__address">
-                            <div class="footer__address--add">
-                                Finstreet 118 2561 Fintown
-                            </div>
-                            <div class="footer__address--hotline">
-                                Hello@finsweet.com 020 7993 2905
-                            </div>
-                        </div>
-                        <div class="footer__mxh">
-                            <a class="item">
-                                <img src="./assests/img/Negative4.png" alt="" />
-                            </a>
-                            <a class="item">
-                                <img src="./assests/img/Negative3.png" alt="" />
-                            </a>
-                            <a class="item">
-                                <img src="./assests/img/Negative.png" alt="" />
-                            </a>
-                            <a class="item">
-                                <img src="./assests/img/Negative2.png" alt="" />
-                            </a>
-                        </div>
-                    </div>
-
-                </section>
-                
-                <!-- <div class="homepage__backdrop ">Nam Phan</div> -->
+               </div>
+          
             </div>
-           
-
-        </div>
-        
-
-        <script src="./src/js/homepage.js"></script>
-    </body>
+            <div class="homepage__giohang disable">
+                  
+               <div class="hompage__giohang--sanpham">
+                  <!-- <img src="./assests/img/out-shop.png" alt="" /> -->
+               </div>
+               <div class="hompage__giohang--header">
+                  <button class="giohang--header__btnclose">
+                     <i class="fa-regular fa-circle-xmark"></i>
+                  </button>
+               </div>
+               <h2 class="homepage__giohang--name-cart">Your Cart</h2>
+               <div id="giohang"class="homepage__giohang--main"></div>
+            </div>
+            <section class="homepage__container">
+               <div class="homepage__hero" id="about-us">
+                  <div class="hero__content">
+                     <h1 class="hero__content--headline">
+                        Enjoy your
+                        <span class="hero__content--drop">coffee</span>
+                        before your activity
+                     </h1>
+                     <p class="hero__content--title">
+                        <!-- Boost your productivity and build your mood with
+                        a glass of coffee in the morning -->
+                        The coffee is brewed by first roasting the green coffee beans over hot
+                        coals in a brazier. given an opportunity to sample.
+                     </p>
+                     <div class="hero__content-btn">
+                        <a
+                           class="hero__content-btn--order"
+                           href="#out-product"
+                           >
+                        Order now
+                        <img src="./assests/img/card.png" alt="" />
+                        </a>
+                        <a
+                           class="hero__content-btn--frame"
+                           href="#out-product"
+                           >
+                        More menu
+                        </a>
+                     </div>
+                  </div>
+                  <div class="hero__img-hero">
+                     <img src="./assests/img/img-hero.png" alt="" />
+                  </div>
+               </div>
+            </section>
+            <section>
+               <div class="homepage__popular" id="best-seller">
+                  <div class="popular__section--title">Popular Now</div>
+                  <div class="popular__section"></div>
+                  <div class="popular__card-list hidden"></div>
+               </div>
+            </section>
+            <section>
+               <div class="homepage__howto" id="delivery">
+                  <div class="howto">
+                     <div class="howto__title">
+                        How to use delivery service
+                     </div>
+                     <div class="howto__frames hidden">
+                        <div class="howto__frame">
+                           <div class="howto__frame--image">
+                              <img
+                                 src="./assests/img/icon-coffee-cup1.png"
+                                 alt=""
+                                 />
+                           </div>
+                           <div class="howto__frame--line">
+                              choose your coffee
+                           </div>
+                           <div class="howto__frame--sub">
+                              there are 20+ coffees for you
+                           </div>
+                        </div>
+                        <div class="howto__frame">
+                           <div class="howto__frame--image">
+                              <img
+                                 src="./assests/img/icon-food-truck1.png"
+                                 alt=""
+                                 />
+                           </div>
+                           <div class="howto__frame--line">
+                              we delivery it to you
+                           </div>
+                           <div class="howto__frame--sub">
+                              Choose delivery service
+                           </div>
+                        </div>
+                        <div class="howto__frame">
+                           <div class="howto__frame--image">
+                              <img
+                                 src="./assests/img/icon-coffee-cup2.png"
+                                 alt=""
+                                 />
+                           </div>
+                           <div class="howto__frame--line">
+                              Enjoy your coffee
+                           </div>
+                           <div class="howto__frame--sub">
+                              Choose delivery service
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <section>
+               <div class="homepage__about">
+                  <div class="about">
+                     <div class="about__bg-image hidden">
+                        <img src="./assests/img/cofee-about.png" alt="" />
+                     </div>
+                     <div class="about__content hidden">
+                        <div class="about__content--headline">
+                           About us
+                        </div>
+                        <div class="about__content--line">
+                           We provide quality coffee, and ready to
+                           deliver.
+                        </div>
+                        <div class="about__content--subline">
+                           We are a company that makes and distributes
+                           delicious drinks. our main product is made
+                           with a secret recipe and available in stores
+                           worldwide.
+                        </div>
+                        <div class="about__content--btn-get">
+                           Get your coffee
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <section>
+               <div class="homepage__popular" id="out-product">
+                  <div class="popular">
+                     <div class="popular__title">
+                        Special menu for you
+                     </div>
+                     <div class="popular__card-list2 hidden"></div>
+                     <div class="popular__btn-showmore">More Menu</div>
+                  </div>
+               </div>
+            </section>
+            <section>
+               <div class="homepage__testimonial">
+                  <div class="testimonial__bg">
+                     <div class="testimonial__bg--headline">
+                        What they say about us
+                     </div>
+                     <div class="testimonial__bg--title">
+                        We always provide the best service and always
+                        maintain the quality of coffee
+                     </div>
+                  </div>
+                  <div class="testimonial__author-list hidden"></div>
+               </div>
+            </section>
+            <section class="hidden">
+               <div class="homepage__footer">
+                  <div class="footer__content">
+                     <div class="footer__sub">
+                        Subscribe to get 50% discount price
+                     </div>
+                     <div class="footer__order">
+                        <input
+                           type="text"
+                           placeholder="Email address"
+                           />
+                        <a
+                           class="footer__order--btn"
+                           href="#out-product"
+                           >Order now</a
+                           >
+                     </div>
+                  </div>
+               </div>
+            </section>
+            <section>
+               <div class="footer__endfoot">
+                  <div class="footer__address">
+                     <div class="footer__address--add">
+                        Finstreet 118 2561 Fintown
+                     </div>
+                     <div class="footer__address--hotline">
+                        Hello@finsweet.com 020 7993 2905
+                     </div>
+                  </div>
+                  <div class="footer__mxh">
+                     <a class="item">
+                     <img src="./assests/img/Negative4.png" alt="" />
+                     </a>
+                     <a class="item">
+                     <img src="./assests/img/Negative3.png" alt="" />
+                     </a>
+                     <a class="item">
+                     <img src="./assests/img/Negative.png" alt="" />
+                     </a>
+                     <a class="item">
+                     <img src="./assests/img/Negative2.png" alt="" />
+                     </a>
+                  </div>
+               </div>
+            </section>
+         </div>
+         <div class="container__backdrop hidden-backdrop"></div>
+      </div>
+      
+      <script  type="module" src="./src/main.js"></script>
+      
+     
+   </body>
 </html>

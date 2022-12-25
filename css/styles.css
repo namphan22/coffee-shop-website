@@ -47,12 +47,10 @@
     top: 7px;
     left: 10px; }
 
-.navbar__shop {
+.navbar__cart {
+  position: relative;
   cursor: pointer; }
-  .navbar__shop img:hover {
-    transform: scale(1.2);
-    transition: 0.5s; }
-  .navbar__shop.active {
+  .navbar__cart.active {
     animation: rotateShop 0.5s infinite alternate; }
 
 @keyframes rotateShop {
@@ -61,61 +59,41 @@
   to {
     transform: rotate(15deg) scale(1.2); } }
 
-.navbar__giohang {
-  width: 400px;
-  height: 1000px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  background-color: white;
-  z-index: 9999;
-  padding: 10px 20px 10px 10px;
-  background-image: url(./assests/img/bg-image-about.png);
-  background-size: cover; }
-  .navbar__giohang--sanpham {
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 18px;
-    margin-bottom: 0px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px; }
-    .navbar__giohang--sanpham img {
-      width: 50%;
-      height: 50%;
-      object-fit: cover;
-      align-items: center;
-      margin-left: 25%;
-      border-radius: 8px;
-      filter: drop-shadow(6px 5px 2px rgba(0, 0, 0, 0.25)); }
-  .navbar__giohang--name {
-    width: 62px; }
-  .navbar__giohang--image {
-    width: 100px;
-    height: 50px; }
-    .navbar__giohang--image img {
-      width: 80%;
-      height: 80%;
-      object-fit: cover;
-      border-radius: 5px; }
-  .navbar__giohang--x img {
-    width: 20px;
-    height: 20px;
-    object-fit: cover;
-    background-color: transparent; }
-  .navbar__giohang--x:hover {
-    transform: rotate(15deg);
+.giohang--header__btnclose {
+  border: none;
+  font-size: 3rem;
+  background-color: #e7e2dd; }
+
+.cart__icon {
+  font-size: 3rem; }
+  .cart__icon i:hover {
+    transform: scale(1.2);
     transition: 0.5s; }
 
-.disable {
-  display: none; }
+.cart__items {
+  position: absolute;
+  top: -9px;
+  right: -8px;
+  font-size: 1.6rem;
+  color: #fff;
+  padding: 0 5px;
+  background-color: #f09d51;
+  border-radius: 30%; }
 
 .container {
-  position: relative;
-  min-width: 1440px; }
+  position: relative; }
+  .container__backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(0.5px);
+    z-index: 3;
+    background: rgba(240, 157, 81, 0.5); }
+
+.hidden-backdrop {
+  display: none; }
 
 .popular__btn-showmore {
   margin-top: 20px;
@@ -147,8 +125,8 @@
   margin-top: 35px; }
 
 .popular__section--title {
-  margin-bottom: 30px;
-  margin-top: 35px; }
+  max-width: 170rem;
+  margin: 0 auto; }
 
 .popular__background {
   height: 350px;
@@ -159,20 +137,19 @@
 .popular__card-list, .popular__card-list2 {
   display: grid;
   padding: 20px;
-  width: 100%;
+  max-width: 170rem;
   border-radius: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10rem;
   flex-wrap: wrap;
   max-height: 970px;
   overflow: hidden;
-  transition: 1s; }
+  transition: 1s;
+  margin: 0 auto; }
 
 .popular__card {
   background-color: #ffff;
-  width: 29%;
   padding: 25px;
   border-radius: 8px;
   filter: drop-shadow(10px 10px 9px rgba(0, 0, 0, 0.25));
@@ -187,10 +164,8 @@
 
 .popular__card-best {
   background-color: #ffff;
-  width: 29%;
   padding: 25px;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 3px;
   filter: drop-shadow(10px 10px 9px rgba(0, 0, 0, 0.25)); }
   .popular__card-best--subline {
     font-family: "Poppins";
@@ -257,9 +232,9 @@
   padding: 0 10px;
   flex-grow: 1;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
-  gap: 30px;
+  gap: 0;
   position: relative; }
 
 .popular__card--btn {
@@ -277,9 +252,11 @@
   line-height: 24px; }
 
 .popular__card--buy {
-  position: absolute;
-  top: 3px;
-  right: 0; }
+  display: block;
+  cursor: pointer;
+  font-weight: 600; }
+  .popular__card--buy img {
+    width: 3rem; }
 
 .show1 {
   max-height: 9000px; }
@@ -332,15 +309,14 @@ a {
 
 .homepage {
   width: 100%;
-  height: 100vh;
   position: relative; }
   .homepage__container {
     padding: 8rem 0 9.6rem 0;
     background-color: #f6ebda; }
   .homepage__navbar {
     width: 100%;
-    height: 8rem;
-    z-index: 10000;
+    height: 7.6rem;
+    z-index: 2;
     position: fixed;
     background-image: url("/assests/img/bg-image-about.png");
     background-repeat: no-repeat;
@@ -350,23 +326,80 @@ a {
     justify-content: space-around;
     align-items: center;
     gap: 32px; }
+  .homepage__giohang {
+    width: 30vw;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2px;
+    background: #e7e2dd;
+    transition: all 0.4s linear;
+    top: 0;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 6;
+    padding: 10px 20px 10px 10px; }
+    .homepage__giohang--header {
+      margin-bottom: 3rem; }
+    .homepage__giohang--name-cart {
+      font-size: 4rem;
+      text-align: center; }
+    .homepage__giohang--sanpham {
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 18px;
+      margin-bottom: 0px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px; }
+      .homepage__giohang--sanpham img {
+        width: 50%;
+        height: 50%;
+        object-fit: cover;
+        align-items: center;
+        margin-left: 25%;
+        border-radius: 8px;
+        filter: drop-shadow(6px 5px 2px rgba(0, 0, 0, 0.25)); }
+    .homepage__giohang--name {
+      width: 62px; }
+    .homepage__giohang--image {
+      width: 100px;
+      height: 50px; }
+      .homepage__giohang--image img {
+        width: 80%;
+        height: 80%;
+        object-fit: cover;
+        border-radius: 5px; }
+    .homepage__giohang--x img {
+      width: 20px;
+      height: 20px;
+      object-fit: cover;
+      background-color: transparent; }
+    .homepage__giohang--x:hover {
+      transform: rotate(15deg);
+      transition: 0.5s; }
   .homepage__hero {
-    padding: 8rem 0 0 0;
+    padding: 8rem 0 4rem 0;
     max-width: 130rem;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 9rem;
+    gap: 9.6rem;
     align-items: center;
     position: relative; }
   .homepage__popular {
-    padding: 5%;
     font-family: "Poppins";
     font-style: normal;
     font-weight: 600;
     font-size: 32px;
     line-height: 48px;
-    margin-bottom: 24px; }
+    margin-bottom: 24px;
+    margin-top: 9rem; }
   .homepage__testimonial {
     display: flex;
     justify-content: space-between;
@@ -408,10 +441,10 @@ a {
   font-size: 5.2rem;
   line-height: 1.05;
   margin-bottom: 3.2rem;
-  letter-spacing: -0.5px;
   color: #333;
   font-weight: 700;
-  font-family: "Rubik" ,sans-serif; }
+  font-family: "Rubik" ,sans-serif;
+  text-transform: uppercase; }
   .hero__content--headline span {
     color: #ff912b; }
 
@@ -455,7 +488,7 @@ a {
     transition: 0.5s; }
 
 .hero__img-hero {
-  z-index: 100;
+  z-index: 0;
   animation: scale-hidden 6s infinite alternate; }
   .hero__img-hero img {
     width: 100%; }
@@ -672,6 +705,10 @@ a {
 
 .footer__test {
   color: white; }
+
+.disable {
+  display: none;
+  transform: translateX(0); }
 
 .active {
   color: #ff912b; }
