@@ -169,8 +169,9 @@ a {
         
     }
     &__popular {
-        padding: 5%;
+ //       padding: 5%;
         @include heading2;
+        margin-top: 9rem
     }
     &__testimonial {
         @include displayFlexCenter(center, space-between, 93px);

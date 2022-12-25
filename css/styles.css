@@ -125,8 +125,8 @@
   margin-top: 35px; }
 
 .popular__section--title {
-  margin-bottom: 30px;
-  margin-top: 35px; }
+  max-width: 170rem;
+  margin: 0 auto; }
 
 .popular__background {
   height: 350px;
@@ -137,7 +137,7 @@
 .popular__card-list, .popular__card-list2 {
   display: grid;
   padding: 20px;
-  width: 100%;
+  max-width: 170rem;
   border-radius: 24px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -145,7 +145,8 @@
   flex-wrap: wrap;
   max-height: 970px;
   overflow: hidden;
-  transition: 1s; }
+  transition: 1s;
+  margin: 0 auto; }
 
 .popular__card {
   background-color: #ffff;
@@ -164,8 +165,7 @@
 .popular__card-best {
   background-color: #ffff;
   padding: 25px;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 3px;
   filter: drop-shadow(10px 10px 9px rgba(0, 0, 0, 0.25)); }
   .popular__card-best--subline {
     font-family: "Poppins";
@@ -232,9 +232,9 @@
   padding: 0 10px;
   flex-grow: 1;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  gap: 30px;
+  gap: 0;
   position: relative; }
 
 .popular__card--btn {
@@ -252,7 +252,9 @@
   line-height: 24px; }
 
 .popular__card--buy {
-  display: block; }
+  display: block;
+  cursor: pointer;
+  font-weight: 600; }
   .popular__card--buy img {
     width: 3rem; }
 
@@ -391,13 +393,13 @@ a {
     align-items: center;
     position: relative; }
   .homepage__popular {
-    padding: 5%;
     font-family: "Poppins";
     font-style: normal;
     font-weight: 600;
     font-size: 32px;
     line-height: 48px;
-    margin-bottom: 24px; }
+    margin-bottom: 24px;
+    margin-top: 9rem; }
   .homepage__testimonial {
     display: flex;
     justify-content: space-between;

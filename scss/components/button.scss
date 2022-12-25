@@ -16,3 +16,19 @@
     transform: scale(1.05);
     transition: 0.5s;
 }
+@mixin buttonCart($color: $lement) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    // padding: 12px 32px;
+    padding: 0.5rem 1.2rem;
+    gap: 10px;
+    background-color:  #e67e22;
+    border-radius: 9px;
+    // background-color: $brown;
+    color: $color;
+    
+    
+    // filter: drop-shadow(6px 5px 2px rgba(0, 0, 0, 0.25));
+}
