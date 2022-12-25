@@ -38,15 +38,12 @@ class renderProduct{
             <div class="popular__card--name">
                 ${obj.name}
             </div>
-            <div class="popular__card--cost">$${obj.cost}</div>
+            <div class="popular__card--cost"><span>đ</span>${obj.cost}.000</div>
         </div>
         <div class="popular__card--decribe">
-            <div class="popular__card--buy">
-            <img
-            src="./assests/img/card.png"
-            alt=""
-            />      
-            </div>
+            <button class="popular__card--buy">
+            Add cart
+            </button>
         </div>
     </div>`
                 )
@@ -86,13 +83,9 @@ class renderProduct{
                     <div class="popular__card--subline">
                         ${obj.feedback}
                     </div>
-                        <div class="popular__card--buy">
-                            <img
-                                src="./assests/img/card.png"
-                                alt=""
-                            />
-                          
-                        </div>
+                        <button class="popular__card--buy">
+                          Add cart
+                        </button>
                     </div>
                     </div>`
                 )
@@ -100,6 +93,7 @@ class renderProduct{
 
             this.muahang();
         });
+      
 
     }
     

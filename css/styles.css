@@ -190,7 +190,7 @@
 
 .popular__card-best:hover {
   transform: scale(1.02);
-  transition: 0.5s; }
+  transition: 1s; }
 
 .popular__rating {
   position: absolute;
@@ -200,7 +200,7 @@
 .popular__card--img {
   margin-bottom: 19px; }
   .popular__card--img img {
-    border-radius: 12px;
+    border-radius: 9px;
     width: 100%;
     height: 100%;
     object-fit: cover; }
@@ -216,7 +216,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 2rem;
   line-height: 36px;
   margin-bottom: 16px; }
 
@@ -224,9 +224,11 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 2rem;
   line-height: 36px;
   margin-bottom: 16px; }
+  .popular__card--cost span {
+    font-size: 1.8rem; }
 
 .popular__card--decribe {
   padding: 0 10px;
@@ -254,9 +256,18 @@
 .popular__card--buy {
   display: block;
   cursor: pointer;
-  font-weight: 600; }
-  .popular__card--buy img {
-    width: 3rem; }
+  font-weight: 600;
+  font-size: 2rem;
+  padding: 0rem 2rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+  background-color: #e67e22;
+  color: white; }
+
+.popular__card--buy:hover {
+  background-color: #cf711f; }
 
 .show1 {
   max-height: 9000px; }
@@ -576,9 +587,9 @@ a {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 2rem;
   line-height: 36px;
-  margin-bottom: 24px; }
+  margin-bottom: 20px; }
 
 .howto__frame--sub {
   font-family: "Poppins";
@@ -609,7 +620,7 @@ a {
       font-family: "Poppins";
       font-style: normal;
       font-weight: 600;
-      font-size: 24px;
+      font-size: 2rem;
       line-height: 36px;
       margin-bottom: 16px;
       letter-spacing: 0.04em; }
