@@ -21,7 +21,7 @@ class renderProduct{
                 .map(
                     (
                         obj
-                    ) => ` <div class="popular__card-best" card-idBest="${obj.id}" >
+                    ) => ` <div class="popular__card-best" >
         <div class="popular__rating">
             <img
                 src="./assests/img/rating_product.png"
@@ -41,7 +41,7 @@ class renderProduct{
             <div class="popular__card--cost"><span>đ</span>${obj.cost}.000</div>
         </div>
         <div class="popular__card--decribe">
-            <button class="popular__card--buy">
+            <button class="popular__card--buy1" card-idBest="${obj.id}">
             Add cart
             </button>
         </div>
@@ -49,7 +49,7 @@ class renderProduct{
                 )
                 .slice(0, 3)
                 .join("");
-            this.muahangBestCoffee();
+           this.muahangBestCoffee();
         });
 
     }
@@ -60,7 +60,7 @@ class renderProduct{
         .then((data) => {
             cardsMenu.innerHTML = data
                 .map(
-                    (obj) => ` <div class="popular__card " card-id="${obj.id}" >
+                    (obj) => ` <div class="popular__card" >
                     <div class="popular__rating">
                         <img
                             src="./assests/img/rating_product.png"
@@ -77,13 +77,13 @@ class renderProduct{
                         <div class="popular__card--name">
                             ${obj.name}
                         </div>
-                        <div class="popular__card--cost">${obj.cost} K</div>
+                        <div class="popular__card--cost"><span>đ</span>${obj.cost}.000</div>
                     </div>
                     <div class="popular__card--decribe">
                     <div class="popular__card--subline">
                         ${obj.feedback}
                     </div>
-                        <button class="popular__card--buy">
+                        <button class="popular__card--buy2" card-id="${obj.id}" >
                           Add cart
                         </button>
                     </div>
@@ -98,7 +98,7 @@ class renderProduct{
     }
     
     muahangBestCoffee() {
-        const btncard = document.querySelectorAll(".popular__card-best");
+        const btncard = document.querySelectorAll(".popular__card--buy1");
         btncard.forEach((btn) => {
             btn.addEventListener("click", () => {
                 const idCard = btn.getAttribute("card-idBest");
@@ -114,7 +114,7 @@ class renderProduct{
 
     }
     muahang() {
-        const btncard = document.querySelectorAll(".popular__card");
+        const btncard = document.querySelectorAll(".popular__card--buy2");
         btncard.forEach((btn) => {
             btn.addEventListener("click", () => {
                 const idCard = btn.getAttribute("card-id");

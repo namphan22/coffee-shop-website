@@ -121,8 +121,8 @@
     transition: 0.5s; }
 
 .popular__title {
-  margin-bottom: 30px;
-  margin-top: 35px; }
+  max-width: 170rem;
+  margin: 0 auto; }
 
 .popular__section--title {
   max-width: 170rem;
@@ -146,7 +146,7 @@
   max-height: 970px;
   overflow: hidden;
   transition: 1s;
-  margin: 0 auto; }
+  margin: 8.6rem auto; }
 
 .popular__card {
   background-color: #ffff;
@@ -253,7 +253,7 @@
   font-size: 16px;
   line-height: 24px; }
 
-.popular__card--buy {
+.popular__card--buy1 {
   display: block;
   cursor: pointer;
   font-weight: 600;
@@ -266,7 +266,23 @@
   background-color: #e67e22;
   color: white; }
 
-.popular__card--buy:hover {
+.popular__card--buy1:hover {
+  background-color: #cf711f; }
+
+.popular__card--buy2 {
+  display: block;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 2rem;
+  padding: 0rem 2rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+  background-color: #e67e22;
+  color: white; }
+
+.popular__card--buy2:hover {
   background-color: #cf711f; }
 
 .show1 {
@@ -409,7 +425,7 @@ a {
     font-weight: 600;
     font-size: 32px;
     line-height: 48px;
-    margin-bottom: 24px;
+    margin-bottom: 60px;
     margin-top: 9rem; }
   .homepage__testimonial {
     display: flex;
@@ -427,7 +443,6 @@ a {
     background-size: cover;
     background-image: url("/assests/img/unsplash_ftA71vetxuo.png"); }
   .homepage__howto {
-    padding: 120px 135px;
     margin-bottom: 175px; }
   .homepage__about {
     width: 100%;
@@ -446,7 +461,7 @@ a {
       font-weight: 600;
       font-size: 32px;
       line-height: 48px;
-      margin-bottom: 24px; }
+      margin-bottom: 60px; }
 
 .hero__content--headline {
   font-size: 5.2rem;
@@ -569,6 +584,8 @@ a {
   margin-bottom: 24px; }
 
 .howto__title {
+  max-width: 170rem;
+  margin: 0 auto;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
@@ -577,11 +594,13 @@ a {
   margin-bottom: 108px; }
 
 .howto__frames {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 16px 65px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  padding: 16px 65px; }
+  max-width: 170rem;
+  margin: 0 auto;
+  justify-items: center; }
 
 .howto__frame--line {
   font-family: "Poppins";
@@ -661,7 +680,7 @@ a {
   font-weight: 600;
   font-size: 32px;
   line-height: 48px;
-  margin-bottom: 24px;
+  margin-bottom: 60px;
   color: #f6ebda; }
 
 .footer__order {
