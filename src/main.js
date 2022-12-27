@@ -12,6 +12,8 @@ const backdrop = document.querySelector('.container__backdrop');
 const btnClose = document.querySelector('.giohang--header__btnclose');
 const plusElement = document.querySelector('.plus');
 const negativeElement = document.querySelector('.negative');
+const totalItemInCart = document.querySelector('#cart-amount');
+let cart =[];
 class renderProduct{
     renderCoffeeBest(){
         fetch("https://6395b17e90ac47c680711c2c.mockapi.io/coffee-special")
@@ -21,7 +23,7 @@ class renderProduct{
                 .map(
                     (
                         obj
-                    ) => ` <div class="popular__card-best" card-idBest="${obj.id}" >
+                    ) => ` <div class="popular__card-best" >
         <div class="popular__rating">
             <img
                 src="./assests/img/rating_product.png"
@@ -38,22 +40,21 @@ class renderProduct{
             <div class="popular__card--name">
                 ${obj.name}
             </div>
-            <div class="popular__card--cost">$${obj.cost}</div>
+            <div class="popular__card--cost"><span>đ</span>${obj.cost}.000</div>
         </div>
         <div class="popular__card--decribe">
-            <div class="popular__card--buy">
-            <img
-            src="./assests/img/card.png"
-            alt=""
-            />      
-            </div>
+            <button class="popular__card--buy1" card-idBest="${obj.id}">
+            Add cart
+            </button>
         </div>
     </div>`
                 )
                 .slice(0, 3)
                 .join("");
-            this.muahangBestCoffee();
+           this.muahangBestCoffee();
+           Storage.saveBestProducts(data);
         });
+       
 
     }
  
@@ -63,7 +64,7 @@ class renderProduct{
         .then((data) => {
             cardsMenu.innerHTML = data
                 .map(
-                    (obj) => ` <div class="popular__card " card-id="${obj.id}" >
+                    (obj) => ` <div class="popular__card" >
                     <div class="popular__rating">
                         <img
                             src="./assests/img/rating_product.png"
@@ -80,19 +81,15 @@ class renderProduct{
                         <div class="popular__card--name">
                             ${obj.name}
                         </div>
-                        <div class="popular__card--cost">${obj.cost} K</div>
+                        <div class="popular__card--cost"><span>đ</span>${obj.cost}.000</div>
                     </div>
                     <div class="popular__card--decribe">
                     <div class="popular__card--subline">
                         ${obj.feedback}
                     </div>
-                        <div class="popular__card--buy">
-                            <img
-                                src="./assests/img/card.png"
-                                alt=""
-                            />
-                          
-                        </div>
+                        <button class="popular__card--buy2" card-id="${obj.id}" >
+                          Add cart
+                        </button>
                     </div>
                     </div>`
                 )
@@ -100,16 +97,31 @@ class renderProduct{
 
             this.muahang();
         });
+      
 
     }
     
     muahangBestCoffee() {
-        const btncard = document.querySelectorAll(".popular__card-best");
+        const btncard = document.querySelectorAll(".popular__card--buy1");
         btncard.forEach((btn) => {
+           // console.log(btn.getAttribute("card-idBest"));
             btn.addEventListener("click", () => {
                 const idCard = btn.getAttribute("card-idBest");
                 let getBestCoffee = new buyProduct();
                 getBestCoffee.getBestCoffeeId(idCard);
+                let inCartCheck = cart.find(item => item.id ===idCard);
+                if(inCartCheck){
+                    alert('Bạn đã thêm món hàng này vào giỏ hàng');
+                }
+                else{
+                let cartItem = {...Storage.getBestProduct(idCard),amount:1};
+                
+                cart =[...cart,cartItem];
+                console.log(cartItem);
+                Storage.saveCart(cart);
+                this.setTotalItem(cart);
+             //   btn.target.disabled =true;
+                }
 //                getBestCoffeeId(idCard);
                 btnshop.classList.add("active");
                 setTimeout(() => {
@@ -120,7 +132,7 @@ class renderProduct{
 
     }
     muahang() {
-        const btncard = document.querySelectorAll(".popular__card");
+        const btncard = document.querySelectorAll(".popular__card--buy2");
         btncard.forEach((btn) => {
             btn.addEventListener("click", () => {
                 const idCard = btn.getAttribute("card-id");
@@ -132,6 +144,14 @@ class renderProduct{
                 }, 2000);
             });
         });
+    }
+    setTotalItem(cart){
+        let totalItem =0;
+        cart.forEach(item => {
+            totalItem += item.amount;
+
+        });
+        totalItemInCart.textContent = totalItem;
     }
     
     
@@ -171,7 +191,7 @@ class buyProduct {
         fetch(`https://6395b17e90ac47c680711c2c.mockapi.io/coffee-product-special-v1/${id}`)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+//                console.log(data);
 //                addCardInShop(data);
                 this.addCardInShop(data);
             });
@@ -231,7 +251,7 @@ const arrGioHang = [];
 function giohang() {
     btnshop.addEventListener("click", (e) => {
         e.preventDefault();
-        console.log(btngiohang);
+//        console.log(btngiohang);
         btngiohang.classList.toggle("disable");
         backdrop.classList.remove('hidden-backdrop');
     });
@@ -300,9 +320,19 @@ function increment(id){
     
 
 }
-function homepage() {
-
-    
+class Storage{
+    static saveBestProducts(bestProduct){
+        localStorage.setItem("bestProduct",JSON.stringify(bestProduct));
+    }
+    static getBestProduct(id){
+        let bestProduct = JSON.parse(localStorage.getItem("bestProduct"));
+        return bestProduct.find((item)=>item.id ===id);
+    }
+    static saveCart(cart){
+        localStorage.setItem("cart",JSON.stringify(cart));
+    }
+}
+function homepage() {   
     navbarActive();
     let render1 = new renderProduct();
     render1.renderCoffeeBest();
@@ -313,9 +343,7 @@ function homepage() {
     giohang();
     hiddenElm();
     showMoreCard();
-
-    
-    
+        
 }
 
 homepage();

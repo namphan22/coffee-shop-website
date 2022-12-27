@@ -47,34 +47,18 @@ a {
 
 .homepage {
     width: 100%;
-    // height: 100vh;
-    // hello
     position: relative;
-    // &__backdrop{
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     height: 100vh;
-    //     width: 100%;
-    //     box-shadow: 0 3rem 5rem rgba(0, 0, 0,5);
-    //     backdrop-filter: blur(3px);
-    //     z-index: 3;
-    // }
+
     &__container {
-        padding: 8rem 0 9.6rem 0;
-        
+        padding: 8rem 0 9.6rem 0; 
         background-color: $beeBg;
     }
     &__navbar {
         width: 100%;
         height: 7.6rem;
-        // padding: 36px 135px;
-        z-index: 2;
-        // padding: 4.8rem;
+        z-index: 2; 
         position: fixed;
         background-image: url("/assests/img/bg-image-about.png");
-
-     
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -90,20 +74,16 @@ a {
         display: flex;
         flex-direction: column;
         border-radius: 2px;
-        background: rgb(231, 226, 221);
-        
+        background: rgb(231, 226, 221);   
         transition: all 0.4s linear;
-        // transform: translate(10px);
         top: 0;   
         box-shadow: 0 3rem 5rem rgba(0, 0, 0,0.3);
         z-index: 6;
         padding: 10px 20px 10px 10px;
         &--header{
-            // margin: 3rem 0 5rem 0;
+            
             margin-bottom: 3rem;
-            // button{
-            //     background-color: rgb(231, 226, 221);
-            // }
+           
         }
         &--name-cart{
             font-size: 4rem;
@@ -152,24 +132,14 @@ a {
         padding: 8rem 0 4rem 0;
         max-width: 130rem;
         margin: 0 auto;
-        // height: 840px;
-        // padding: 158px 122px 158px 135px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap:9.6rem;
-        align-items: center;
-        
-        position: relative;
-        // background-attachment: fixed;
-        // background-image: url("/assests/img/bg-login.jpg");
-        // hello nam phan
-        // background-repeat: no-repeat;
-        // background-position: center;
-        // background-size: cover;
-        
+        align-items: center;  
+        position: relative;  
     }
     &__popular {
- //       padding: 5%;
+ 
         @include heading2;
         margin-top: 9rem
     }
@@ -180,27 +150,21 @@ a {
     &__footer {
         max-width: 140rem;
         height: 50rem;
-        
         margin-bottom: 9.6rem;
         margin: 0 auto;
-        // margin: 135px 120px;
         border-top-right-radius: 32px;
-        border-bottom-right-radius: 32px;
-        // background-attachment: fixed;
-        // background-repeat: no-repeat;
+        border-bottom-right-radius: 32px; 
         background-size: cover;
-        // background-position: center;
         background-image: url("/assests/img/unsplash_ftA71vetxuo.png");
     }
     &__howto {
-        padding: 120px 135px;
+      
         margin-bottom: 175px;
     }
     &__about {
         width: 100%;
         height: 484px;
-        padding: 84px 290px;
-        
+        padding: 84px 290px;      
         background-image: url("/assests/img/bg-image-about.png");
         background-attachment: fixed;
         background-repeat: no-repeat;
@@ -217,19 +181,18 @@ a {
 
 .hero {
     &__content {
-        // padding-right: 293px;
-        // width: 60%;
+      
         
         &--headline {
-            // @include heading1(64px);
+            
             font-size: 5.2rem;
             line-height: 1.05;
             margin-bottom: 3.2rem;
-            // letter-spacing:-0.5px ;
+          
             color: #333;
             font-weight: 700;
             font-family: "Rubik" ,sans-serif;
-            // font-family: "Bebas Neue", cursive;
+            
             text-transform: uppercase;
             span {
                 color: $orange;
@@ -314,13 +277,21 @@ a {
 
 .howto {
     &__title {
+        max-width: 170rem;
+        margin: 0 auto;
         @include heading2(108px);
+       
     }
     &__frames {
-        @include displayFlexCenter(center, space-between, 30px);
+      
         padding: 16px 65px;
+        @include displayGrid(3,30px);
+        max-width: 170rem;
+        margin: 0 auto;
+        justify-items: center;
     }
     &__frame {
+        
         &--line {
             @include heading3;
         }
@@ -394,8 +365,7 @@ a {
             }
         }
     }
-    &__endfoot {
-        // background-image: url("/assests/img/bg-author.png");
+    &__endfoot { 
         background-size: cover;
         padding: 48px 80px 56px 80px;
         border-radius: 50px 0px 0px 0px;
@@ -428,11 +398,7 @@ a {
 .active {
     color: $orange;
 }
-// section {
-//     display: grid;
-//     min-height: 100vh;
-//     scroll-snap-align: start;
-// }
+
 .hidden {
     opacity: 0;
     transition: all 1.5s;

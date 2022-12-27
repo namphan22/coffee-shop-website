@@ -19,7 +19,7 @@
     line-height: 72px;
     margin-bottom: $mb;
 }
-@mixin heading2($mb: 24px) {
+@mixin heading2($mb: 60px) {
     font-family: "Poppins";
     font-style: normal;
     font-weight: 600;
@@ -27,11 +27,11 @@
     line-height: 48px;
     margin-bottom: $mb;
 }
-@mixin heading3($mb: 24px) {
+@mixin heading3($mb: 20px) {
     font-family: "Poppins";
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 2rem;
     line-height: 36px;
     margin-bottom: $mb;
 }
