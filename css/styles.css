@@ -146,7 +146,7 @@
   max-height: 970px;
   overflow: hidden;
   transition: 1s;
-  margin: 8.6rem auto; }
+  margin: 4.6rem auto; }
 
 .popular__card {
   background-color: #ffff;
@@ -160,7 +160,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
-    margin-bottom: 24px; }
+    margin-bottom: 0px; }
 
 .popular__card-best {
   background-color: #ffff;
@@ -173,7 +173,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
-    margin-bottom: 24px; }
+    margin-bottom: 0px; }
 
 .popular__card:first-child {
   transition-delay: 200ms; }
@@ -234,7 +234,7 @@
   padding: 0 10px;
   flex-grow: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   gap: 0;
   position: relative; }
@@ -581,7 +581,7 @@ a {
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
-  margin-bottom: 24px; }
+  margin-bottom: 0px; }
 
 .howto__title {
   max-width: 170rem;

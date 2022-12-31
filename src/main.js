@@ -43,6 +43,7 @@ class renderProduct{
             <div class="popular__card--cost"><span>đ</span>${obj.cost}.000</div>
         </div>
         <div class="popular__card--decribe">
+        
             <button class="popular__card--buy1" card-idBest="${obj.id}">
             Add cart
             </button>
@@ -57,9 +58,9 @@ class renderProduct{
        
 
     }
- 
+    // https://639071e065ff41831113c6ea.mockapi.io/coffee-product
     renderCoffee(){
-        fetch("https://639071e065ff41831113c6ea.mockapi.io/coffee-product")
+        fetch("https://639071e065ff41831113c6ea.mockapi.io/coffee-product-v1")
         .then((res) => res.json())
         .then((data) => {
             cardsMenu.innerHTML = data
@@ -152,6 +153,7 @@ class renderProduct{
 
         });
         totalItemInCart.textContent = totalItem;
+       
     }
     
     
@@ -332,7 +334,7 @@ class Storage{
         localStorage.setItem("cart",JSON.stringify(cart));
     }
 }
-function homepage() {   
+function main() {   
     navbarActive();
     let render1 = new renderProduct();
     render1.renderCoffeeBest();
@@ -346,4 +348,4 @@ function homepage() {
         
 }
 
-homepage();
+main();

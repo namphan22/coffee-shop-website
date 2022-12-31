@@ -44,7 +44,7 @@
     line-height: 18px;
     margin-bottom: $mb;
 }
-@mixin cap3($mb: 24px) {
+@mixin cap3($mb: 0px) {
     font-family: "Poppins";
     font-style: normal;
     font-weight: 400;
