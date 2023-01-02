@@ -4,11 +4,16 @@
     align-items: $align;
     gap: $gap;
 }
-
+@mixin displayGridItemInCard($gapSpace,){
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: $gapSpace;
+}
 @mixin displayGrid($column:0, $gap: 0){
     display: grid;
     grid-template-columns: repeat($column,1fr);
     gap: $gap;
+    
 }
 // Text
 @mixin heading1($mb: 24px) {

@@ -13,8 +13,21 @@ const btnClose = document.querySelector('.giohang--header__btnclose');
 const plusElement = document.querySelector('.plus');
 const negativeElement = document.querySelector('.negative');
 const totalItemInCart = document.querySelector('#cart-amount');
+
+const totalPriceInCart = document.querySelector('.homepage__giohang--total');
+const modal = document.querySelector('.container__modal');
 let cart =[];
-class renderProduct{
+class UI{
+    setUpApp(){
+        cart = Storage.getCart();
+        console.log(cart[0]);
+        this.setTotalItem(cart);
+        this.intialItem(cart);
+    }
+    // this method for render data from database(localStorage);
+    intialItem(cart){
+        cart.forEach((item)=>this.getBestCoffeeId(item));
+    }
     renderCoffeeBest(){
         fetch("https://6395b17e90ac47c680711c2c.mockapi.io/coffee-special")
         .then((res) => res.json())
@@ -43,7 +56,7 @@ class renderProduct{
             <div class="popular__card--cost"><span>đ</span>${obj.cost}.000</div>
         </div>
         <div class="popular__card--decribe">
-        
+            <div class="popular__card--btn">Hot</div>
             <button class="popular__card--buy1" card-idBest="${obj.id}">
             Add cart
             </button>
@@ -108,11 +121,20 @@ class renderProduct{
            // console.log(btn.getAttribute("card-idBest"));
             btn.addEventListener("click", () => {
                 const idCard = btn.getAttribute("card-idBest");
-                let getBestCoffee = new buyProduct();
-                getBestCoffee.getBestCoffeeId(idCard);
+                // let getBestCoffee = new buyProduct();
+                // getBestCoffee.getBestCoffeeId(idCard);
+
                 let inCartCheck = cart.find(item => item.id ===idCard);
                 if(inCartCheck){
-                    alert('Bạn đã thêm món hàng này vào giỏ hàng');
+                    // alert('Bạn đã thêm món hàng này vào giỏ hàng');
+                    
+                    this.modalCheckItemInCart();
+                    modal.classList.remove('hidden-modal');
+                    setTimeout(()=>{
+                        modal.classList.add('hidden-modal');
+                    },5000)
+                    
+
                 }
                 else{
                 let cartItem = {...Storage.getBestProduct(idCard),amount:1};
@@ -121,9 +143,11 @@ class renderProduct{
                 console.log(cartItem);
                 Storage.saveCart(cart);
                 this.setTotalItem(cart);
+                this.getBestCoffeeId(cartItem);
+               // console.log(cart);
              //   btn.target.disabled =true;
                 }
-//                getBestCoffeeId(idCard);
+//               
                 btnshop.classList.add("active");
                 setTimeout(() => {
                     btnshop.classList.remove("active");
@@ -137,8 +161,9 @@ class renderProduct{
         btncard.forEach((btn) => {
             btn.addEventListener("click", () => {
                 const idCard = btn.getAttribute("card-id");
-                let getAllCoffee = new buyProduct();
-                getAllCoffee.getCoffeeId(idCard);
+                // let getAllCoffee = new buyProduct();
+                
+                // getAllCoffee.getCoffeeId(idCard);
                 btnshop.classList.add("active");
                 setTimeout(() => {
                     btnshop.classList.remove("active");
@@ -148,13 +173,78 @@ class renderProduct{
     }
     setTotalItem(cart){
         let totalItem =0;
+        let totalPrice = 0;
         cart.forEach(item => {
             totalItem += item.amount;
+            totalPrice+=item.amount*item.cost;
 
         });
         totalItemInCart.textContent = totalItem;
+        totalPriceInCart.textContent = totalPrice;
        
     }
+    getBestCoffeeId(cardItem) {
+//        fetch(`https://6395b17e90ac47c680711c2c.mockapi.io/coffee-product-special-v1/${id}`)
+//            .then((res) => res.json())
+//            .then((obj) => {
+               // console.log();
+                const div = document.createElement("div");
+                div.classList.add("homepage__giohang--sanpham");
+                div.innerHTML =`
+               
+                  <div class="homepage__giohang--image">
+                    <img src=${cardItem.img} alt="" />
+                  </div>
+                  <div class="homepage__giohang--middle">
+                    <div class="homepage__giohang--name">${cardItem.name}</div>
+                    <div class="homepage__giohang--cost">$ ${cardItem.cost}</div>
+                    <div class="homepage__giohang--x" data-id="${cardItem.id}">Remove</div>
+                  </div>
+                  <div class="homepage__giohang--end">
+                    <i class="fas fa-chevron-up" data-id=${cardItem.id}>
+                    </i>
+                    <p class="item-amount">
+                       ${cardItem.amount}
+                    </p>
+                    <i class="fas fa-chevron-down" data-id=${cardItem.id}></i>
+                 </div>
+                `
+                addgiohang.appendChild(div);
+                this.removeItemGioHang();
+
+//            });
+    }
+    // method for check item in card inserted
+    modalCheckItemInCart(){
+        // const divNode = document.createElement("div");
+        // divNode.classList.add("modal__content");
+        // divNode.innerHTML =
+        const text=
+        `<div class="modal__content">
+           <button class="modal__close">&times;</button>
+           <div class="content">Bạn đã chọn món này rồi</div>
+        </div>
+        `
+      // console.log(text);
+        modal.innerHTML = text;
+        
+    }
+    removeItemGioHang() {
+        const timesItems = document.querySelectorAll(".homepage__giohang--x");
+        timesItems.forEach(
+            (timesItem, index) =>
+                (timesItem.onclick = () => {
+                    const getid = timesItem.getAttribute("data-id"); 
+                    cart = cart.filter((item)=> item.id!=getid);
+                    addgiohang.removeChild(timesItem.parentElement.parentElement);
+                    this.setTotalItem(cart);
+                    Storage.saveCart(cart);
+                    
+                })
+        );
+    }
+   
+    
     
     
 
@@ -221,7 +311,7 @@ class buyProduct {
             <div class="homepage__giohang--image">
                 <img src=${obj.img} alt="" />
             </div>
-            <div class="homepage__giohang--name">${obj.name}</div>
+            <h2 class="homepage__giohang--name">${obj.name}</h2>
             <div class="homepage__giohang--cost">${obj.cost} K</div>
             <div class="homepage__giohang--x">              
                 <img src="./assests/img/rubbish-bin.png" alt="bin" />
@@ -249,7 +339,7 @@ class buyProduct {
         );
     }
 }
-const arrGioHang = [];
+
 function giohang() {
     btnshop.addEventListener("click", (e) => {
         e.preventDefault();
@@ -261,6 +351,7 @@ function giohang() {
         e.preventDefault();
         btngiohang.classList.toggle("disable");
     });
+    
 }
 
 //  scroll secction
@@ -308,20 +399,8 @@ btnClose.addEventListener('click',closeShoppingCart);
 
 
 
-function increment(id){
-    let selectedItemId =id;
-    console.log(id);
-    let search = undefined;
-    if(search===undefined){
-        basket.push({
-            id:selectedItemId,
-            itemNum:1
 
-        })
-    }
-    
 
-}
 class Storage{
     static saveBestProducts(bestProduct){
         localStorage.setItem("bestProduct",JSON.stringify(bestProduct));
@@ -333,19 +412,26 @@ class Storage{
     static saveCart(cart){
         localStorage.setItem("cart",JSON.stringify(cart));
     }
+    static getCart(){
+        return localStorage.getItem("cart")?
+        JSON.parse(localStorage.getItem("cart")):[];
+    }
 }
-function main() {   
+
+
+document.addEventListener('DOMContentLoaded',()=>{
     navbarActive();
-    let render1 = new renderProduct();
+    let render1 = new UI();
     render1.renderCoffeeBest();
     render1.renderCoffee();
     let render2 = new Users();
     render2.renderUser();
+    render1.setUpApp();
     
     giohang();
+    // render1.handleLogicCart();
+    
     hiddenElm();
     showMoreCard();
-        
-}
 
-main();
+});
