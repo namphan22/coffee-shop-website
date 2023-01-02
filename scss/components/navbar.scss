@@ -14,13 +14,7 @@
         }
         @include displayFlexCenter(center, space-between, 32px);
         list-style: none;
-        // list-style: none;
-        // display: flex;
-        // justify-content: space-around;
-       
-        // gap: 3.2rem;
-        
-       
+         
     }
 
     &__link {
@@ -33,7 +27,6 @@
     }
     
     &__buy {
-        // @include displayFlexCenter(center, space-between, 32px);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -76,67 +69,7 @@
         
     }
       
-    // &__giohang {
-    //     width: 470px;
-    //     height: 100vh;
-    //     position: absolute;
-    //     right: 0;
-    //     display: flex;
-    //     flex-direction: column;
-    //     border-radius: 2px;
-    //     background: #fff;
-    //     transition: all 0.4s linear;
-    //     transform: translate(10px);
-    //     top: 0;   
-    //     box-shadow: 0 3rem 5rem rgba(0, 0, 0,0.3);
-    //     z-index: 9999;
-    //     padding: 10px 20px 10px 10px;
-    //     &--header{
-    //         // margin: 3rem 0 5rem 0;
-    //         margin-bottom: 3rem;
-    //         button{
-    //             background: none;
-    //         }
-    //     }
-    //     &--sanpham {
-    //         @include cap4($mb: 0px);
-    //         @include displayFlexCenter(center, space-between, 10px);
-    //         img {
-    //             width: 50%;
-    //             height: 50%;
-    //             object-fit: cover;
-    //             align-items: center;
-    //             margin-left: 25%;
-    //             border-radius: 8px;
-    //             filter: drop-shadow(6px 5px 2px rgba(0, 0, 0, 0.25));
-    //         }
-    //     }
-    //     &--name {
-    //         width: 62px;
-    //     }
-    //     &--image {
-    //         width: 100px;
-    //         height: 50px;
-    //         img {
-    //             width: 80%;
-    //             height: 80%;
-    //             object-fit: cover;
-    //             border-radius: 5px;
-    //         }
-    //     }
-    //     &--x {
-    //         img {
-    //             width: 20px;
-    //             height: 20px;
-    //             object-fit: cover;
-    //             background-color: transparent;
-    //         }
-    //         &:hover {
-    //             transform: rotate(15deg);
-    //             transition: 0.5s;
-    //         }
-    //     }
-    // }
+   
 }
 
 

@@ -12,7 +12,39 @@
         background: rgba(240, 157, 81, 0.5);
 
     }
+    &__modal{
+        top: 10rem;
+        left: 0;
+        
+        position: absolute;
+        
+    }
 }
 .hidden-backdrop{
     display: none;
+}
+.hidden-modal{
+    display: none;
+}
+.modal{
+    &__content{
+       padding: 1rem 2rem;
+       position: fixed;
+       max-width: 55rem;
+       display: flex;
+       align-items: center;
+       border-radius: 12px;
+       background-color: aquamarine;
+       z-index: 20;
+       font-size: 2rem;
+       
+       
+        
+    }
+    &__close{
+        border: none;
+        font-size: 4rem;
+        background: none;
+        color: red;
+    }
 }
