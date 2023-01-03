@@ -158,6 +158,7 @@ a {
     &__howto {
       
         margin-bottom: 175px;
+        margin-top: 12rem;
     }
     &__about {
         width: 100%;
@@ -350,6 +351,7 @@ a {
             width: 486px;
             padding: 20px;
             border-radius: 42px;
+            font-size: 1.8rem;
         }
         &--btn {
             position: absolute;
@@ -358,6 +360,7 @@ a {
             color: $beeBg;
             padding: 10px 20px;
             border-radius: 42px;
+            font-size: 1.6rem;
             cursor: pointer;
             &:hover {
                 transform: scale(1.02);
