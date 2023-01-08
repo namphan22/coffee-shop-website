@@ -1,5 +1,5 @@
 ### Contributors:Nam Phan - Hoang Phuc
-## Compile scss automatically
+### Compile scss automatically
 ### 1. npm init
 ### 2. npm install 
 ### 3. npm install node-sass

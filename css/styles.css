@@ -41,7 +41,8 @@
     width: 222px;
     border-radius: 35px;
     padding: 11px 52px;
-    border: none; }
+    border: none;
+    font-size: 1.8rem; }
   .navbar__look img {
     position: absolute;
     top: 7px;
@@ -409,7 +410,8 @@ a {
       gap: 1.8rem; }
     .homepage__giohang--image {
       width: 100px;
-      height: 75px; }
+      height: 75px;
+      border: 1px solid #f8f6f5; }
       .homepage__giohang--image img {
         width: 100%;
         height: 100%; }
@@ -420,7 +422,11 @@ a {
     .homepage__giohang--x {
       cursor: pointer; }
       .homepage__giohang--x:hover {
+        transform: rotate(15deg);
+        transition: 1s;
         color: orange; }
+      .homepage__giohang--x i {
+        font-size: 1.8rem; }
     .homepage__giohang--end {
       display: flex;
       justify-content: space-around;
@@ -459,7 +465,8 @@ a {
     background-size: cover;
     background-image: url("/assests/img/unsplash_ftA71vetxuo.png"); }
   .homepage__howto {
-    margin-bottom: 175px; }
+    margin-bottom: 175px;
+    margin-top: 12rem; }
   .homepage__about {
     width: 100%;
     height: 484px;
@@ -674,6 +681,7 @@ a {
       color: #ffcb7c;
       width: 200px;
       filter: drop-shadow(6px 5px 2px rgba(0, 0, 0, 0.25));
+      font-size: 1.8rem;
       cursor: pointer; }
     .about__content--btn-get:hover {
       transform: scale(1.05);
@@ -705,7 +713,8 @@ a {
     height: 54px;
     width: 486px;
     padding: 20px;
-    border-radius: 42px; }
+    border-radius: 42px;
+    font-size: 1.8rem; }
   .footer__order--btn {
     position: absolute;
     right: 5px;
@@ -713,6 +722,7 @@ a {
     color: #f6ebda;
     padding: 10px 20px;
     border-radius: 42px;
+    font-size: 1.6rem;
     cursor: pointer; }
     .footer__order--btn:hover {
       transform: scale(1.02);
@@ -772,8 +782,5 @@ a {
   transform: scale(1.2);
   transition: 0.5s; }
 
-.fas {
+.quantity__btn {
   cursor: pointer; }
-
-.item-amount {
-  font-size: 1.8rem; }
