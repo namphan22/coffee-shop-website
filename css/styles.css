@@ -410,7 +410,8 @@ a {
       gap: 1.8rem; }
     .homepage__giohang--image {
       width: 100px;
-      height: 75px; }
+      height: 75px;
+      border: 1px solid #f8f6f5; }
       .homepage__giohang--image img {
         width: 100%;
         height: 100%; }
@@ -421,7 +422,11 @@ a {
     .homepage__giohang--x {
       cursor: pointer; }
       .homepage__giohang--x:hover {
+        transform: rotate(15deg);
+        transition: 1s;
         color: orange; }
+      .homepage__giohang--x i {
+        font-size: 1.8rem; }
     .homepage__giohang--end {
       display: flex;
       justify-content: space-around;
@@ -676,6 +681,7 @@ a {
       color: #ffcb7c;
       width: 200px;
       filter: drop-shadow(6px 5px 2px rgba(0, 0, 0, 0.25));
+      font-size: 1.8rem;
       cursor: pointer; }
     .about__content--btn-get:hover {
       transform: scale(1.05);
@@ -776,8 +782,5 @@ a {
   transform: scale(1.2);
   transition: 0.5s; }
 
-.fas {
+.quantity__btn {
   cursor: pointer; }
-
-.item-amount {
-  font-size: 1.8rem; }

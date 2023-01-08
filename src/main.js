@@ -14,7 +14,7 @@ const btnYourCoffee = document.querySelector(".about__content--btn-get");
 export const showMore_btn = document.querySelector(".popular__btn-showmore");
 export const backdrop = document.querySelector('.container__backdrop');
 const btnClose = document.querySelector('.giohang--header__btnclose');
-const plusElement = document.querySelector('.plus');
+// const plusElement = document.querySelector('.plus');
 const negativeElement = document.querySelector('.negative');
 const totalItemInCart = document.querySelector('#cart-amount');
 
@@ -29,7 +29,7 @@ class UI{
         this.setTotalItem(cart);
         this.intialItem(cart);
     }
-    // this method for render data from database(localStorage);
+    // this method for render data from (localStorage);
     intialItem(cart){
         cart.forEach((item)=>{
         if(item.id>=16){
@@ -216,15 +216,22 @@ class UI{
                   <div class="homepage__giohang--middle">
                     <div class="homepage__giohang--name">${cardItem.name}</div>
                     <div class="homepage__giohang--cost">$ ${cardItem.cost}</div>
-                    <div class="homepage__giohang--x" data-id="${cardItem.id}">Remove</div>
-                  </div>
-                  <div class="homepage__giohang--end">
-                    <i class="fas fa-chevron-up" data-id=${cardItem.id}>
-                    </i>
+
+                    <div class="quantity"style="display:flex; align-items: center;gap:8px;">
+                    <ion-icon class="quantity__btn quantity__plus" name="add-outline"data-id="${cardItem.id}"></ion-icon>
+                    
                     <p class="item-amount">
                        ${cardItem.amount}
                     </p>
-                    <i class="fas fa-chevron-down" data-id=${cardItem.id}></i>
+                    
+                    <ion-icon class=" quantity__btn quantity__minus"name="remove-outline" data-id="${cardItem.id}"></ion-icon>
+                    </div>
+                  </div>
+                  <div class="homepage__giohang--end">
+                  
+                
+                    <div class="homepage__giohang--x" data-id="${cardItem.id}">Remove</div>
+                    
                  </div>
                 `
                 addgiohang.appendChild(div);
@@ -237,22 +244,28 @@ class UI{
         div.classList.add("homepage__giohang--sanpham");
         div.innerHTML =`
        
-          <div class="homepage__giohang--image">
-            <img src=${cardItem.img} alt="" />
-          </div>
-          <div class="homepage__giohang--middle">
-            <div class="homepage__giohang--name">${cardItem.name}</div>
-            <div class="homepage__giohang--cost">$ ${cardItem.cost}</div>
-            <div class="homepage__giohang--x" data-id="${cardItem.id}">Remove</div>
-          </div>
-          <div class="homepage__giohang--end">
-            <i class="fas fa-chevron-up" data-id=${cardItem.id}>
-            </i>
-            <p class="item-amount">
-               ${cardItem.amount}
-            </p>
-            <i class="fas fa-chevron-down" data-id=${cardItem.id}></i>
-         </div>
+            <div class="homepage__giohang--image">
+                <img src=${cardItem.img} alt="" />
+            </div>
+            <div class="homepage__giohang--middle">
+               <div class="homepage__giohang--name">${cardItem.name}</div>
+               <div class="homepage__giohang--cost">$ ${cardItem.cost}</div>
+
+               <div style="display:flex; align-items: center;gap:8px;">
+                  <ion-icon  class="quantity__btn quantity__plus"name="add-outline"data-id="${cardItem.id}"></ion-icon>
+        
+                  <p class="item-amount" data-id="${cardItem.id}">
+                    ${cardItem.amount}
+                  </p>
+        
+                 <ion-icon class="quantity__btn quantity__minus"name="remove-outline" data-id="${cardItem.id}"></ion-icon>
+               </div>
+            </div>
+            <div class="homepage__giohang--end">
+      
+    
+             <div class="homepage__giohang--x" data-id="${cardItem.id}">Remove</div>
+            </div>
         `
         addgiohang.appendChild(div);
         this.removeItemGioHang();
@@ -285,6 +298,7 @@ class UI{
                     this.setTotalItem(cart);
                     Storage.saveCart(cart);
                     
+                    
                 })
         );
     }
@@ -302,15 +316,33 @@ class UI{
         btnClose.addEventListener('click',closeShoppingCart);
         
     }
+    cartLogic(){
+        const plusquantitys = document.querySelectorAll('.quantity__btn.quantity__plus');
+    //    console.log(plusquantitys);
+        plusquantitys.forEach((plusElement)=>{
+            plusElement.addEventListener('click',()=>{
+                let idPlus = plusElement.getAttribute("data-id");
+                console.log(idPlus);
+                let idplusEle = cart.find((item)=>item.id===idPlus);
+                
+                let amountTemp = idplusEle.amount++;
+                console.log(amountTemp);
+                Storage.saveCart(cart);
+                this.setTotalItem(cart);
+                
+
+
+                
+
+            })
+        })
+    }
    
     
     
     
 
 }
-
-
-
 
 document.addEventListener('DOMContentLoaded',()=>{
     
@@ -323,10 +355,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     render2.renderUser();
     render1.setUpApp();
     render1.cart();
-    
-    
+    render1.cartLogic();
     animation.hiddenElm();
- 
     animation.showMoreCard();
 
 });

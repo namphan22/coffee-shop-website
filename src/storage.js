@@ -11,7 +11,7 @@ export default class Storage{
     }
     static getAllProducts(id){
         let allProducts = JSON.parse(localStorage.getItem("products"));
-        return allProducts.find((item)=>item.id =id);
+        return allProducts.find((item)=>item.id ===id);
     }
     static saveCart(cart){
         localStorage.setItem("cart",JSON.stringify(cart));
@@ -19,5 +19,11 @@ export default class Storage{
     static getCart(){
         return localStorage.getItem("cart")?
         JSON.parse(localStorage.getItem("cart")):[];
+    }
+    static displayQuantity(id){
+        let amountPropeties=JSON.parse(localStorage.getItem("cart"))
+        .find((item)=>item.id ===id);
+        return amountPropeties.amount;
+
     }
 }
