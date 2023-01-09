@@ -314,7 +314,7 @@ class UI{
             btngiohang.classList.toggle("disable");
         });
         btnClose.addEventListener('click',closeShoppingCart);
-        this.cartLogic();
+      
         this.clearCart();
         
     }
@@ -404,7 +404,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     render2.renderUser();
     render1.setUpApp();
     render1.cart();
- //   render1.cartLogic();
+    render1.cartLogic();
     animation.hiddenElm();
     animation.showMoreCard();
     animation.scrollfunction();
