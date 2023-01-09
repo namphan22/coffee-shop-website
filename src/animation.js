@@ -35,5 +35,27 @@ export default class Animation{
         cardsMenu.classList.toggle("show1");
     });
     }
+    scrollfunction(){
+        let heigtscroll = document.querySelector('.homepage__hero').offsetHeight + document.querySelector('.homepage__navbar').offsetHeight;
+        
+        window.onscroll=function(){
+
+            if(document.body.scrollTop>heigtscroll || document.documentElement.scrollTop>heigtscroll ){
+                document.querySelector('.homepage__navbar').classList.add('nav-colored');
+                // console.log('đã scroll');
+                // console.log(heigtscroll );
+    
+            }
+            else if (document.body.scrollTop===0){
+                document.querySelector('.homepage__navbar').classList.remove('nav-colored');
+
+            }
+    
+        }
+        
+        
+        
+        
+    }
 
 }

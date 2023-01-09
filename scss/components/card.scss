@@ -1,6 +1,7 @@
 @import "./button.scss";
 
 .popular {
+    text-align:center ;
     &__btn-showmore {
         margin-top: 20px;
         @include button($width: 170px);
@@ -15,6 +16,18 @@
        
         max-width:170rem ;
         margin: 0 auto;
+        font-size: 2.2rem;
+        color:#ffcb45;
+    }
+    &__heading{
+        font-size: 3rem;
+        color:#000;
+        font-weight: 500;
+    }
+    &__desc{
+        font-size: 2.2rem;
+        color: #555;
+        font-weight:500;
     }
     &__section--title {
        
@@ -40,6 +53,7 @@
         overflow: hidden;
         transition: 1s;
         margin: 4.6rem auto;
+        margin-top: 0;
     }
     &__card {
         background-color: $light;
