@@ -21,11 +21,11 @@ const totalItemInCart = document.querySelector('#cart-amount');
 const totalPriceInCart = document.querySelector('.homepage__giohang--total');
 const modal = document.querySelector('.container__modal');
 
-let cart =[];
+let cart =[];//  store item in cart 
 class UI{
     setUpApp(){
         cart = Storage.getCart();
-        console.log(cart[0]);
+       // console.log(cart[0]);
         this.setTotalItem(cart);
         this.intialItem(cart);
     }
@@ -220,7 +220,7 @@ class UI{
                     <div class="quantity"style="display:flex; align-items: center;gap:8px;">
                     <ion-icon class="quantity__btn quantity__plus" name="add-outline"data-id="${cardItem.id}"></ion-icon>
                     
-                    <p class="item-amount">
+                    <p class="item-amount" data-id="${cardItem.id}">
                        ${cardItem.amount}
                     </p>
                     
@@ -314,30 +314,78 @@ class UI{
             btngiohang.classList.toggle("disable");
         });
         btnClose.addEventListener('click',closeShoppingCart);
+        this.cartLogic();
+        this.clearCart();
         
     }
     cartLogic(){
+        const itemAmounts = document.querySelectorAll('.item-amount');
         const plusquantitys = document.querySelectorAll('.quantity__btn.quantity__plus');
+        const minusquantitys = document.querySelectorAll('.quantity__btn.quantity__minus');
     //    console.log(plusquantitys);
         plusquantitys.forEach((plusElement)=>{
             plusElement.addEventListener('click',()=>{
                 let idPlus = plusElement.getAttribute("data-id");
                 console.log(idPlus);
-                let idplusEle = cart.find((item)=>item.id===idPlus);
-                
-                let amountTemp = idplusEle.amount++;
-                console.log(amountTemp);
+                let idplusEle = cart.findIndex((item)=>item.id===idPlus);
+            //    console.log(plusElement);
+            // console.log(idplusEle);
+                cart[idplusEle].amount = cart[idplusEle].amount+1;
+            //    console.log(amountTemp);
+             
+ 
                 Storage.saveCart(cart);
+                
+                plusElement.nextElementSibling.innerText =  cart[idplusEle].amount ;
                 this.setTotalItem(cart);
                 
-
-
                 
-
+                
+                
             })
         })
+
+        minusquantitys.forEach((minusElement)=>{
+            minusElement.addEventListener('click',()=>{
+                let idminus = minusElement.getAttribute("data-id");
+               
+                let idminusEle = cart.findIndex((item)=>item.id===idminus);
+                console.log(idminusEle);
+               
+               cart[idminusEle].amount =  cart[idminusEle].amount-1;
+               
+                if( cart[idminusEle].amount>0){
+                    Storage.saveCart(cart);
+                
+                    minusElement.previousElementSibling.innerText =  cart[idminusEle].amount;
+                    this.setTotalItem(cart);
+
+                }
+                else{
+                   alert('Ban da xoa nhieu lan qua roi');
+
+
+                }
+                
+                
+                
+            })
+        })
+
+
     }
-   
+    clearCart(){
+        const clearCart = document.querySelector('.homepage__giohang--clear-cart');
+        clearCart.addEventListener('click',()=>{
+            cart =[];
+            Storage.saveCart(cart);
+            this.setTotalItem(cart);
+            while(addgiohang.children.length>0){
+                addgiohang.removeChild(addgiohang.children[0]);
+
+            }
+        })
+    }
     
     
     
@@ -348,6 +396,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     
     let animation = new Animation();
     animation.navbarActive();
+    
     let render1 = new UI();
     render1.renderCoffeeBest();
     render1.renderCoffee();
@@ -355,8 +404,10 @@ document.addEventListener('DOMContentLoaded',()=>{
     render2.renderUser();
     render1.setUpApp();
     render1.cart();
-    render1.cartLogic();
+ //   render1.cartLogic();
     animation.hiddenElm();
     animation.showMoreCard();
+    animation.scrollfunction();
+    
 
 });

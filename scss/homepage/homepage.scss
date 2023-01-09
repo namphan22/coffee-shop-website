@@ -12,11 +12,29 @@ html{
     font: inherit;
 }
 body {
+    // webkit-scrollbar styles for width of scrollbar
+   
     line-height: 1.5;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     font-family: "Rubik" ,sans-serif;
     position: relative;
+    overflow-x: hidden;
+    
+}
+body::-webkit-scrollbar {
+    width: 12px;
+
+}
+body::-webkit-scrollbar-track{
+    background-color: #fafafa;
+
+}
+body::-webkit-scrollbar-thumb{
+    // background-image: linear-gradient(-45deg, #6a5af9, #d66efd);
+    background-color: #ffd56a;
+    
+    border-radius: 50px;
 }
 img,
 picture,
@@ -122,6 +140,8 @@ a {
             }
            i{
             font-size: 1.8rem;
+            width:10px;
+            height:10px;
            }
         }
         &--end{
@@ -134,7 +154,7 @@ a {
     }
     &__hero {
         padding: 8rem 0 4rem 0;
-        max-width: 130rem;
+        max-width: 140rem;
         margin: 0 auto;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -231,7 +251,7 @@ a {
         animation: scale-hidden 6s infinite alternate;
 
         img {
-            width: 100%;
+            width: 90%;
         }
     }
 }
@@ -283,15 +303,27 @@ a {
 }
 
 .howto {
+    text-align: center;
     &__title {
         max-width: 170rem;
         margin: 0 auto;
-        @include heading2(108px);
+        @include heading2(0);
+        font-size: 2.2rem;
+        color:#ffcb45;
+
        
+    }
+    &__heading{
+        font-size: 3rem;
+        
+    }
+    &__desc{
+        font-size: 2.1rem;
+        color:#555;
     }
     &__frames {
       
-        padding: 16px 65px;
+        padding: 50px 65px;
         @include displayGrid(3,30px);
         max-width: 170rem;
         margin: 0 auto;
@@ -310,6 +342,8 @@ a {
 
 .about {
     @include displayFlexCenter(center, flex-end, 100px);
+    max-width: 140rem;
+    margin: 0 auto;
     &__bg-image {
         margin-top: -200px;
         width: 50%;
@@ -440,4 +474,10 @@ a {
     
 }
 
-
+.nav-colored{
+    background-color: #f8f6f5;
+    background-image:none;
+}
+.quantity{
+    font-size: 1.8rem;
+}
