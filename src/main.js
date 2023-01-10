@@ -21,6 +21,8 @@ const totalItemInCart = document.querySelector('#cart-amount');
 const totalPriceInCart = document.querySelector('.homepage__giohang--total');
 const modal = document.querySelector('.container__modal');
 
+
+
 let cart =[];//  store item in cart 
 class UI{
     setUpApp(){
@@ -160,6 +162,7 @@ class UI{
                 }, 2000);
             });
         });
+        
 
     }
     buyAllCoffees() {
@@ -192,6 +195,7 @@ class UI{
                 }, 2000);
             });
         });
+        
     }
     setTotalItem(cart){
         let totalItem =0;
@@ -217,14 +221,14 @@ class UI{
                     <div class="homepage__giohang--name">${cardItem.name}</div>
                     <div class="homepage__giohang--cost">$ ${cardItem.cost}</div>
 
-                    <div class="quantity"style="display:flex; align-items: center;gap:8px;">
+                    <div class="quantity"style="display:flex; align-items: center;gap:10px;">
                     <ion-icon class="quantity__btn quantity__plus" name="add-outline"data-id="${cardItem.id}"></ion-icon>
                     
                     <p class="item-amount" data-id="${cardItem.id}">
                        ${cardItem.amount}
                     </p>
                     
-                    <ion-icon class=" quantity__btn quantity__minus"name="remove-outline" data-id="${cardItem.id}"></ion-icon>
+                    <ion-icon class="quantity__btn quantity__minus"name="remove-outline" data-id="${cardItem.id}"></ion-icon>
                     </div>
                   </div>
                   <div class="homepage__giohang--end">
@@ -236,6 +240,7 @@ class UI{
                 `
                 addgiohang.appendChild(div);
                 this.removeItemGioHang();
+            //    console.log(plusquantitys);
 
 //            });
     }
@@ -251,14 +256,14 @@ class UI{
                <div class="homepage__giohang--name">${cardItem.name}</div>
                <div class="homepage__giohang--cost">$ ${cardItem.cost}</div>
 
-               <div style="display:flex; align-items: center;gap:8px;">
-                  <ion-icon  class="quantity__btn quantity__plus"name="add-outline"data-id="${cardItem.id}"></ion-icon>
+               <div class="quantity"style="display:flex; align-items: center;gap:10px;">
+                  <ion-icon  class="quantity__plus"name="add-outline"data-id="${cardItem.id}"></ion-icon>
         
                   <p class="item-amount" data-id="${cardItem.id}">
                     ${cardItem.amount}
                   </p>
         
-                 <ion-icon class="quantity__btn quantity__minus"name="remove-outline" data-id="${cardItem.id}"></ion-icon>
+                 <ion-icon class="quantity__minus"name="remove-outline" data-id="${cardItem.id}"></ion-icon>
                </div>
             </div>
             <div class="homepage__giohang--end">
@@ -314,21 +319,27 @@ class UI{
             btngiohang.classList.toggle("disable");
         });
         btnClose.addEventListener('click',closeShoppingCart);
-      
+        this.cartLogic();
         this.clearCart();
         
     }
     cartLogic(){
-        const itemAmounts = document.querySelectorAll('.item-amount');
-        const plusquantitys = document.querySelectorAll('.quantity__btn.quantity__plus');
-        const minusquantitys = document.querySelectorAll('.quantity__btn.quantity__minus');
+        // const itemAmounts = document.querySelectorAll('.item-amount');
+        const plusquantitys = document.querySelectorAll(".quantity__btn.quantity__plus");
+        const minusquantitys = document.querySelectorAll(".quantity__btn.quantity__minus");
     //    console.log(plusquantitys);
+    //console.log(plusquantitys);
+        // addgiohang.addEventListener('click',(event)=>{
+        //     if(event.target.classList()
+        // })
+        console.log(plusquantitys);
         plusquantitys.forEach((plusElement)=>{
             plusElement.addEventListener('click',()=>{
+         
                 let idPlus = plusElement.getAttribute("data-id");
                 console.log(idPlus);
                 let idplusEle = cart.findIndex((item)=>item.id===idPlus);
-            //    console.log(plusElement);
+               console.log(plusElement);
             // console.log(idplusEle);
                 cart[idplusEle].amount = cart[idplusEle].amount+1;
             //    console.log(amountTemp);
@@ -400,11 +411,12 @@ document.addEventListener('DOMContentLoaded',()=>{
     let render1 = new UI();
     render1.renderCoffeeBest();
     render1.renderCoffee();
+    
     let render2 = new Users();
     render2.renderUser();
     render1.setUpApp();
     render1.cart();
-    render1.cartLogic();
+    
     animation.hiddenElm();
     animation.showMoreCard();
     animation.scrollfunction();
