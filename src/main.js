@@ -222,13 +222,13 @@ class UI{
                     <div class="homepage__giohang--cost">$ ${cardItem.cost}</div>
 
                     <div class="quantity"style="display:flex; align-items: center;gap:10px;">
-                    <ion-icon class="quantity__btn quantity__plus" name="add-outline"data-id="${cardItem.id}"></ion-icon>
+                    <i class="quantity__btn quantity__plus" name="add-outline"data-id="${cardItem.id}">+</i>
                     
                     <p class="item-amount" data-id="${cardItem.id}">
                        ${cardItem.amount}
                     </p>
                     
-                    <ion-icon class="quantity__btn quantity__minus"name="remove-outline" data-id="${cardItem.id}"></ion-icon>
+                    <i class="quantity__btn quantity__minus"name="remove-outline" data-id="${cardItem.id}">-</i>
                     </div>
                   </div>
                   <div class="homepage__giohang--end">
@@ -257,13 +257,13 @@ class UI{
                <div class="homepage__giohang--cost">$ ${cardItem.cost}</div>
 
                <div class="quantity"style="display:flex; align-items: center;gap:10px;">
-                  <ion-icon  class="quantity__btn quantity__plus"name="add-outline"data-id="${cardItem.id}"></ion-icon>
+                  <i  class="quantity__btn quantity__plus"name="add-outline"data-id="${cardItem.id}">+</i>
         
                   <p class="item-amount" data-id="${cardItem.id}">
                     ${cardItem.amount}
                   </p>
         
-                 <ion-icon class="quantity__btn quantity__minus"name="remove-outline" data-id="${cardItem.id}"></ion-icon>
+                 <i class="quantity__btn quantity__minus"name="remove-outline" data-id="${cardItem.id}">-</i>
                </div>
             </div>
             <div class="homepage__giohang--end">
