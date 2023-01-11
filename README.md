@@ -1,5 +1,5 @@
-
-### Compile scss automatically
+## [Demo Link](https://coffeeshop-namphan.netlify.app)
+## Compile scss automatically
 ### 1. npm init
 ### 2. npm install 
 ### 3. npm install node-sass
@@ -10,3 +10,4 @@
 
 
 ### 4. npm run scss
+
