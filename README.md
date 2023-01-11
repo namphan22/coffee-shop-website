@@ -1,4 +1,4 @@
-## [Demo Link](https://coffeeshop-namphan.netlify.app)
+## Visit:[https://coffeeshop-namphan.netlify.app](https://coffeeshop-namphan.netlify.app)
 ## Compile sass into css automatically:
 ### 1. npm init
 ### 2. npm install 
